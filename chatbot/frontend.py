@@ -514,86 +514,171 @@ footer { visibility: hidden; }
     }
 }
 
-/* ===== Welcome Screen (Claude Editorial Hero) ===== */
+/* ===== 21st.dev Animated Hero Section ===== */
 .welcome-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 55vh;
+    min-height: 60vh;
     text-align: center;
-    animation: claudeMessageIn 0.5s ease-out;
+    animation: claudeMessageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    padding: 2rem 0 1rem 0;
 }
 
-.welcome-logo {
-    font-size: 3.2rem;
-    margin-bottom: 0.5rem;
-    filter: drop-shadow(0 0 24px rgba(217, 119, 6, 0.35));
+/* Glowing Chip Badge (21st.dev style) */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(217, 119, 6, 0.08);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    padding: 0.35rem 0.95rem;
+    border-radius: 9999px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: #fbbf24;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 0 20px rgba(217, 119, 6, 0.15), inset 0 0 12px rgba(217, 119, 6, 0.08);
+    backdrop-filter: blur(10px);
+    animation: badgePulse 3s ease-in-out infinite alternate;
 }
 
+@keyframes badgePulse {
+    0% { border-color: rgba(217, 119, 6, 0.3); box-shadow: 0 0 15px rgba(217, 119, 6, 0.1); }
+    100% { border-color: rgba(224, 122, 95, 0.6); box-shadow: 0 0 25px rgba(224, 122, 95, 0.25); }
+}
+
+.hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    background: #f59e0b;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #f59e0b;
+    animation: pulse 1.8s infinite;
+}
+
+/* Shimmering Animated Gradient Headline (21st.dev Text Shimmer) */
 .welcome-title {
     font-family: 'Newsreader', Georgia, serif;
     font-weight: 500;
-    font-size: 2.8rem;
-    color: var(--text-primary);
-    letter-spacing: -0.03em;
-    margin-bottom: 0.6rem;
-    line-height: 1.1;
+    font-size: 3.2rem;
+    letter-spacing: -0.035em;
+    line-height: 1.12;
+    margin-bottom: 0.8rem;
+    background: linear-gradient(
+        120deg,
+        #f5f0e8 0%,
+        #f59e0b 25%,
+        #cc785c 50%,
+        #e07a5f 75%,
+        #f5f0e8 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: textShimmer 8s linear infinite;
+}
+
+@keyframes textShimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .welcome-subtitle {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 400;
-    font-size: 0.98rem;
+    font-size: 1.05rem;
     color: var(--text-muted);
-    max-width: 440px;
+    max-width: 520px;
     line-height: 1.65;
+    margin-bottom: 2rem;
 }
 
-/* ===== Capability Cards (21st.dev Minimalist Grid) ===== */
+/* 21st.dev Bento Grid Capability Cards */
 .cap-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-    margin-top: 2.2rem;
-    max-width: 540px;
+    gap: 16px;
+    max-width: 640px;
+    width: 100%;
 }
 
 .cap-card {
-    background: var(--bg-glass);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    padding: 1.1rem 1.2rem;
+    background: rgba(22, 19, 16, 0.65);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(245, 240, 230, 0.07);
+    border-radius: var(--radius-lg);
+    padding: 1.3rem 1.35rem;
     text-align: left;
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glowing gradient border beam on hover (21st.dev Border Beam) */
+.cap-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius-lg);
+    padding: 1px;
+    background: linear-gradient(135deg, transparent 40%, rgba(217, 119, 6, 0.4), rgba(204, 120, 92, 0.6));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .cap-card:hover {
-    border-color: var(--border-active);
-    background: var(--bg-glass-hover);
-    box-shadow: var(--shadow-glow);
-    transform: translateY(-2px);
+    background: rgba(30, 26, 21, 0.85);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 25px rgba(217, 119, 6, 0.12);
 }
 
-.cap-icon {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+.cap-card:hover::before {
+    opacity: 1;
+}
+
+.cap-icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.15), rgba(204, 120, 92, 0.08));
+    border: 1px solid rgba(217, 119, 6, 0.25);
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 0 12px rgba(217, 119, 6, 0.1);
 }
 
 .cap-title {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--text-primary);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
 }
 
 .cap-desc {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 400;
-    font-size: 0.74rem;
+    font-size: 0.78rem;
     color: var(--text-muted);
-    line-height: 1.45;
+    line-height: 1.5;
 }
     40% { transform: scale(1); opacity: 1; }
 }
@@ -949,31 +1034,34 @@ with st.sidebar:
 if not st.session_state['message_history']:
     st.markdown("""
     <div class="welcome-container">
-        <div class="welcome-logo">✦</div>
-        <div class="welcome-title">Good day. How can I help?</div>
+        <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            <span>Neural 3.0 · Cognitive Engine</span>
+        </div>
+        <div class="welcome-title">Where Intelligence Meets Memory</div>
         <div class="welcome-subtitle">
-            An intelligent assistant with persistent long-term memory, document synthesis, and real-time live tools.
+            Experience next-generation conversational AI with persistent long-term recall, deep document synthesis, and multi-agent tools.
         </div>
         <div class="cap-grid">
             <div class="cap-card">
-                <div class="cap-icon">💭</div>
-                <div class="cap-title">Personalized Memory</div>
-                <div class="cap-desc">Remembers your background, tools & preferences across sessions</div>
+                <div class="cap-icon-box">🧠</div>
+                <div class="cap-title">Persistent Recall</div>
+                <div class="cap-desc">Remembers your technical stack, preferences & goals with vector deduplication</div>
             </div>
             <div class="cap-card">
-                <div class="cap-icon">📄</div>
-                <div class="cap-title">Document Synthesis</div>
-                <div class="cap-desc">Drop research PDFs for in-depth semantic Q&A and analysis</div>
+                <div class="cap-icon-box">📄</div>
+                <div class="cap-title">Deep Document Synthesis</div>
+                <div class="cap-desc">Semantic vector retrieval across uploaded research papers & manuals</div>
             </div>
             <div class="cap-card">
-                <div class="cap-icon">⚡</div>
-                <div class="cap-title">Code & Technical Depth</div>
-                <div class="cap-desc">Architectural planning, refactoring, algorithms & debugging</div>
+                <div class="cap-icon-box">⚡</div>
+                <div class="cap-title">Engineering Depth</div>
+                <div class="cap-desc">Full-stack coding, algorithm design, architecture & debugging</div>
             </div>
             <div class="cap-card">
-                <div class="cap-icon">🌐</div>
-                <div class="cap-title">Live Web & Financial Tools</div>
-                <div class="cap-desc">Real-time web search and live market data integration</div>
+                <div class="cap-icon-box">🌐</div>
+                <div class="cap-title">Real-Time Tools</div>
+                <div class="cap-desc">Live internet search, stock market quotes & safe calculation</div>
             </div>
         </div>
     </div>
