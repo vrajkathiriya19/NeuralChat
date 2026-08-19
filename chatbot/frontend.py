@@ -24,75 +24,76 @@ st.set_page_config(
 # ======================= 21st.dev Inspired CSS =======================
 st.markdown("""
 <style>
-/* ===== Google Fonts ===== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+/* ===== Google Fonts: Newsreader (Editorial Serif) + Plus Jakarta Sans + JetBrains Mono ===== */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* ===== CSS Variables (shadcn/21st.dev tokens) ===== */
-/* Dark Mode (Default) */
+/* ===== Claude.ai & 21st.dev Premium Theme Tokens ===== */
 :root, [data-theme="dark"] {
-    --bg-primary: #09090b;
-    --bg-secondary: #0c0c10;
-    --bg-card: rgba(17, 17, 21, 0.85);
-    --bg-glass: rgba(255, 255, 255, 0.03);
-    --bg-glass-hover: rgba(255, 255, 255, 0.06);
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-active: rgba(124, 58, 237, 0.4);
-    --text-primary: #fafafa;
-    --text-secondary: #a1a1aa;
-    --text-muted: #71717a;
-    --sidebar-bg: rgba(12, 12, 16, 0.85);
-    --user-msg-bg: linear-gradient(135deg, rgba(124, 58, 237, 0.25), rgba(124, 58, 237, 0.1));
-    --user-msg-border: rgba(124, 58, 237, 0.3);
-    --chat-input-bg: rgba(17, 17, 21, 0.9);
-    --ambient-opacity: 0.08;
-    --accent-violet: #7c3aed;
-    --accent-cyan: #06b6d4;
-    --accent-pink: #ec4899;
-    --gradient-primary: linear-gradient(135deg, #7c3aed, #06b6d4);
-    --shadow-glow: 0 0 20px rgba(124, 58, 237, 0.15);
-    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+    --bg-primary: #0d0c0b;
+    --bg-secondary: #141210;
+    --bg-card: rgba(26, 23, 20, 0.75);
+    --bg-glass: rgba(255, 255, 255, 0.025);
+    --bg-glass-hover: rgba(255, 255, 255, 0.05);
+    --border-subtle: rgba(245, 240, 230, 0.06);
+    --border-active: rgba(217, 119, 6, 0.35);
+    --text-primary: #f5f0e8;
+    --text-secondary: #bfb5a5;
+    --text-muted: #7d7568;
+    --sidebar-bg: rgba(18, 16, 14, 0.92);
+    --user-msg-bg: rgba(38, 33, 28, 0.85);
+    --user-msg-border: rgba(217, 119, 6, 0.2);
+    --chat-input-bg: rgba(20, 18, 15, 0.95);
+    --ambient-opacity: 0.07;
+    --accent-terracotta: #cc785c;
+    --accent-amber: #d97706;
+    --accent-gold: #f59e0b;
+    --accent-clay: #e07a5f;
+    --gradient-brand: linear-gradient(135deg, #d97706, #cc785c 60%, #e07a5f);
+    --gradient-glow: linear-gradient(135deg, rgba(217, 119, 6, 0.2), rgba(204, 120, 92, 0.08));
+    --shadow-glow: 0 0 25px rgba(217, 119, 6, 0.12);
+    --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.4);
     --radius-sm: 8px;
     --radius-md: 12px;
-    --radius-lg: 16px;
-    --radius-xl: 20px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
     --radius-full: 9999px;
-    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Light Mode Support */
+/* Light Mode (Claude Classic Warm Ivory) */
 [data-theme="light"] {
-    --bg-primary: #f8fafc;
-    --bg-secondary: #ffffff;
+    --bg-primary: #faf8f5;
+    --bg-secondary: #f4efe8;
     --bg-card: rgba(255, 255, 255, 0.95);
-    --bg-glass: rgba(0, 0, 0, 0.03);
-    --bg-glass-hover: rgba(0, 0, 0, 0.06);
-    --border-subtle: rgba(0, 0, 0, 0.08);
-    --border-active: rgba(124, 58, 237, 0.5);
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #94a3b8;
-    --sidebar-bg: rgba(255, 255, 255, 0.9);
-    --user-msg-bg: linear-gradient(135deg, rgba(124, 58, 237, 0.12), rgba(6, 182, 212, 0.08));
-    --user-msg-border: rgba(124, 58, 237, 0.25);
-    --chat-input-bg: rgba(255, 255, 255, 0.95);
-    --ambient-opacity: 0.04;
-    --shadow-glow: 0 0 15px rgba(124, 58, 237, 0.1);
-    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.06);
+    --bg-glass: rgba(0, 0, 0, 0.02);
+    --bg-glass-hover: rgba(0, 0, 0, 0.04);
+    --border-subtle: rgba(0, 0, 0, 0.06);
+    --border-active: rgba(217, 119, 6, 0.4);
+    --text-primary: #2b2520;
+    --text-secondary: #63584e;
+    --text-muted: #9c8e7f;
+    --sidebar-bg: rgba(247, 243, 237, 0.95);
+    --user-msg-bg: #ece5da;
+    --user-msg-border: rgba(217, 119, 6, 0.2);
+    --chat-input-bg: rgba(255, 255, 255, 0.98);
+    --ambient-opacity: 0.03;
+    --shadow-glow: 0 0 20px rgba(217, 119, 6, 0.08);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 /* ===== Global Resets ===== */
 html, body, .stApp, [data-testid="stAppViewContainer"] {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
     background-color: var(--bg-primary) !important;
     color: var(--text-primary) !important;
+    letter-spacing: -0.01em;
 }
 
 .stApp {
     background: var(--bg-primary) !important;
 }
 
-/* Ambient gradient background */
+/* 21st.dev Floating Particle & Aurora Ambient Background */
 [data-testid="stAppViewContainer"]::before {
     content: '';
     position: fixed;
@@ -100,34 +101,37 @@ html, body, .stApp, [data-testid="stAppViewContainer"] {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(ellipse at 20% 50%, rgba(124, 58, 237, var(--ambient-opacity)) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 20%, rgba(6, 182, 212, var(--ambient-opacity)) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 80%, rgba(236, 72, 153, var(--ambient-opacity)) 0%, transparent 50%);
+    background: 
+        radial-gradient(ellipse at 15% 30%, rgba(217, 119, 6, var(--ambient-opacity)) 0%, transparent 45%),
+        radial-gradient(ellipse at 85% 20%, rgba(204, 120, 92, var(--ambient-opacity)) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 85%, rgba(224, 122, 95, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 60% 40%, rgba(245, 158, 11, 0.03) 0%, transparent 35%);
     z-index: -1;
-    animation: ambientShift 20s ease-in-out infinite alternate;
+    animation: claudeAurora 25s ease-in-out infinite alternate;
 }
 
-@keyframes ambientShift {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(-2%, -1%) scale(1.02); }
+@keyframes claudeAurora {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    50% { transform: translate(-1.5%, 1%) scale(1.03) rotate(1deg); }
+    100% { transform: translate(1%, -1.5%) scale(0.98) rotate(-1deg); }
 }
 
-/* ===== Custom Scrollbar ===== */
-::-webkit-scrollbar { width: 6px; }
+/* ===== Custom Minimal Scrollbar ===== */
+::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-    background: rgba(124, 58, 237, 0.3);
-    border-radius: 3px;
+    background: rgba(217, 119, 6, 0.25);
+    border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(124, 58, 237, 0.5);
+    background: rgba(217, 119, 6, 0.45);
 }
 
-/* ===== Sidebar — Glassmorphism ===== */
+/* ===== Sidebar — Claude Editorial Dark ===== */
 [data-testid="stSidebar"] {
     background: var(--sidebar-bg) !important;
-    backdrop-filter: blur(20px) saturate(1.2) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(1.2) !important;
+    backdrop-filter: blur(24px) saturate(1.1) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(1.1) !important;
     border-right: 1px solid var(--border-subtle) !important;
 }
 
@@ -136,42 +140,38 @@ html, body, .stApp, [data-testid="stAppViewContainer"] {
     padding-top: 1.5rem !important;
 }
 
-/* ===== Sidebar Title / Brand ===== */
+/* ===== Sidebar Brand Header ===== */
 [data-testid="stSidebar"] h1 {
-    font-family: 'Inter', sans-serif !important;
-    font-weight: 800 !important;
-    font-size: 1.6rem !important;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-family: 'Newsreader', serif !important;
+    font-weight: 500 !important;
+    font-size: 1.7rem !important;
     letter-spacing: -0.02em;
-    padding-bottom: 0.25rem;
+    color: var(--text-primary) !important;
 }
 
-/* ===== Sidebar Headers ===== */
-[data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3 {
-    font-family: 'Inter', sans-serif !important;
+/* ===== Sidebar Section Labels ===== */
+[data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3, [data-testid="stSidebar"] h5 {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-weight: 600 !important;
-    font-size: 0.8rem !important;
+    font-size: 0.72rem !important;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     color: var(--text-muted) !important;
-    margin-top: 0.5rem !important;
-    margin-bottom: 0.5rem !important;
+    margin-top: 0.6rem !important;
+    margin-bottom: 0.4rem !important;
 }
 
 /* ===== Sidebar Dividers ===== */
 [data-testid="stSidebar"] hr {
     border-color: var(--border-subtle) !important;
-    margin: 0.75rem 0 !important;
+    margin: 0.85rem 0 !important;
 }
 
-/* ===== Sidebar Buttons (Chat List + Actions) ===== */
+/* ===== Sidebar Buttons (Conversation Cards) ===== */
 [data-testid="stSidebar"] .stButton > button {
-    font-family: 'Inter', sans-serif !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-weight: 500 !important;
-    font-size: 0.825rem !important;
+    font-size: 0.84rem !important;
     background: var(--bg-glass) !important;
     color: var(--text-secondary) !important;
     border: 1px solid var(--border-subtle) !important;
@@ -189,57 +189,50 @@ html, body, .stApp, [data-testid="stAppViewContainer"] {
     transform: translateY(-1px);
 }
 
-/* ===== New Chat Button — Gradient Glow ===== */
+/* ===== New Chat Button — Claude Terracotta Accent ===== */
 [data-testid="stSidebar"] .stButton > button[kind="secondary"]:first-of-type,
-.new-chat-btn > button {
-    background: var(--gradient-primary) !important;
-    color: white !important;
+.new-chat-btn > button,
+button[key="new_chat_btn"] {
+    background: var(--gradient-brand) !important;
+    color: #0f0e0d !important;
+    font-weight: 700 !important;
     border: none !important;
-    font-weight: 600 !important;
-    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3) !important;
-    letter-spacing: 0.01em;
+    box-shadow: 0 4px 20px rgba(217, 119, 6, 0.25) !important;
+    letter-spacing: -0.01em;
 }
 
-.new-chat-btn > button:hover {
-    box-shadow: 0 6px 25px rgba(124, 58, 237, 0.5) !important;
+[data-testid="stSidebar"] .stButton > button[kind="secondary"]:first-of-type:hover,
+button[key="new_chat_btn"]:hover {
+    box-shadow: 0 6px 28px rgba(217, 119, 6, 0.45) !important;
     transform: translateY(-2px) !important;
 }
 
-/* ===== Sidebar File Uploader ===== */
+/* ===== File Uploader ===== */
 [data-testid="stSidebar"] [data-testid="stFileUploader"] {
     background: var(--bg-glass) !important;
-    border: 1px dashed rgba(124, 58, 237, 0.3) !important;
+    border: 1px dashed rgba(217, 119, 6, 0.25) !important;
     border-radius: var(--radius-md) !important;
     padding: 0.5rem !important;
 }
 
 [data-testid="stSidebar"] [data-testid="stFileUploader"]:hover {
-    border-color: var(--accent-violet) !important;
-    background: rgba(124, 58, 237, 0.05) !important;
+    border-color: var(--accent-amber) !important;
+    background: rgba(217, 119, 6, 0.04) !important;
 }
 
-/* ===== Sidebar Slider ===== */
+/* ===== Slider ===== */
 [data-testid="stSidebar"] .stSlider > div > div > div {
-    background: var(--gradient-primary) !important;
+    background: var(--gradient-brand) !important;
 }
 
 [data-testid="stSidebar"] .stSlider [data-testid="stThumbValue"] {
-    color: var(--accent-violet) !important;
+    color: var(--accent-amber) !important;
     font-weight: 600 !important;
-}
-
-/* ===== Sidebar Info/Success/Warning Boxes ===== */
-[data-testid="stSidebar"] .stAlert {
-    background: var(--bg-glass) !important;
-    border: 1px solid var(--border-subtle) !important;
-    border-radius: var(--radius-md) !important;
-    color: var(--text-secondary) !important;
-    font-size: 0.8rem !important;
 }
 
 /* ===== Main Content Area ===== */
 .main .block-container {
-    max-width: 860px !important;
+    max-width: 840px !important;
     padding-top: 2rem !important;
     padding-bottom: 6rem !important;
 }
@@ -248,16 +241,16 @@ html, body, .stApp, [data-testid="stAppViewContainer"] {
 [data-testid="stChatMessage"] {
     background: transparent !important;
     border: none !important;
-    padding: 0.75rem 0 !important;
-    animation: fadeSlideIn 0.3s ease-out;
+    padding: 0.9rem 0 !important;
+    animation: claudeMessageIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes fadeSlideIn {
-    from { opacity: 0; transform: translateY(8px); }
+@keyframes claudeMessageIn {
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* User Messages */
+/* User Message Card */
 [data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-user"]) {
     justify-content: flex-end;
 }
@@ -266,74 +259,79 @@ html, body, .stApp, [data-testid="stAppViewContainer"] {
     background: var(--user-msg-bg) !important;
     border: 1px solid var(--user-msg-border) !important;
     border-radius: var(--radius-lg) var(--radius-lg) 4px var(--radius-lg) !important;
-    padding: 0.9rem 1.1rem !important;
-    max-width: 85%;
+    padding: 1rem 1.25rem !important;
+    max-width: 82%;
+    box-shadow: var(--shadow-card);
 }
 
-/* AI Messages */
+/* AI Message Card (Claude Clean Minimal Box) */
 [data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-assistant"]) > div:last-child {
     background: var(--bg-card) !important;
     border: 1px solid var(--border-subtle) !important;
     border-radius: 4px var(--radius-lg) var(--radius-lg) var(--radius-lg) !important;
-    padding: 0.9rem 1.1rem !important;
-    backdrop-filter: blur(10px);
-    max-width: 85%;
+    padding: 1.15rem 1.35rem !important;
+    backdrop-filter: blur(14px);
+    max-width: 88%;
+    box-shadow: var(--shadow-card);
 }
 
 /* Chat Avatars */
 [data-testid="chatAvatarIcon-user"] {
-    background: var(--gradient-primary) !important;
+    background: var(--gradient-brand) !important;
     border-radius: var(--radius-full) !important;
 }
 
 [data-testid="chatAvatarIcon-assistant"] {
-    background: linear-gradient(135deg, #1e1e2e, #2d1b69) !important;
-    border: 1px solid rgba(124, 58, 237, 0.3) !important;
+    background: linear-gradient(135deg, #1f1b17, #33281e) !important;
+    border: 1px solid rgba(217, 119, 6, 0.3) !important;
     border-radius: var(--radius-full) !important;
-    box-shadow: 0 0 12px rgba(124, 58, 237, 0.2);
+    box-shadow: 0 0 14px rgba(217, 119, 6, 0.15);
 }
 
-/* ===== Chat Input ===== */
+/* ===== Floating Centered Prompt Input Bar (Claude Style) ===== */
 [data-testid="stChatInput"] {
     background: transparent !important;
     border: none !important;
 }
 
 [data-testid="stChatInput"] > div {
-    background: rgba(17, 17, 21, 0.9) !important;
-    backdrop-filter: blur(20px) !important;
+    background: var(--chat-input-bg) !important;
+    backdrop-filter: blur(24px) !important;
     border: 1px solid var(--border-subtle) !important;
     border-radius: var(--radius-xl) !important;
-    box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(245, 240, 230, 0.04) !important;
     transition: var(--transition) !important;
+    padding: 0.2rem 0.4rem !important;
 }
 
 [data-testid="stChatInput"] > div:focus-within {
-    border-color: var(--accent-violet) !important;
-    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(124, 58, 237, 0.15) !important;
+    border-color: var(--accent-amber) !important;
+    box-shadow: 0 -8px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(217, 119, 6, 0.18) !important;
 }
 
 [data-testid="stChatInput"] textarea {
-    font-family: 'Inter', sans-serif !important;
-    font-size: 0.925rem !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 0.94rem !important;
     color: var(--text-primary) !important;
+    line-height: 1.5 !important;
 }
 
 [data-testid="stChatInput"] textarea::placeholder {
     color: var(--text-muted) !important;
 }
 
-/* Chat Send Button */
+/* Send Button */
 [data-testid="stChatInput"] button {
-    background: var(--gradient-primary) !important;
+    background: var(--gradient-brand) !important;
+    color: #0f0e0d !important;
     border: none !important;
     border-radius: var(--radius-full) !important;
     transition: var(--transition) !important;
 }
 
 [data-testid="stChatInput"] button:hover {
-    box-shadow: 0 0 15px rgba(124, 58, 237, 0.4) !important;
-    transform: scale(1.05);
+    box-shadow: 0 0 16px rgba(217, 119, 6, 0.4) !important;
+    transform: scale(1.06);
 }
 
 /* ===== Code Blocks ===== */
@@ -343,67 +341,127 @@ code {
 }
 
 pre {
-    background: rgba(0, 0, 0, 0.4) !important;
+    background: rgba(14, 13, 11, 0.85) !important;
     border: 1px solid var(--border-subtle) !important;
     border-radius: var(--radius-md) !important;
-    padding: 1rem !important;
+    padding: 1.1rem !important;
 }
 
-/* Inline code */
 p code, li code {
-    background: rgba(124, 58, 237, 0.12) !important;
-    color: #c4b5fd !important;
-    padding: 0.15rem 0.4rem !important;
-    border-radius: 4px !important;
+    background: rgba(217, 119, 6, 0.12) !important;
+    color: #fcd34d !important;
+    padding: 0.15rem 0.45rem !important;
+    border-radius: 5px !important;
     font-size: 0.82rem !important;
 }
 
-/* ===== Tool Badge Styling ===== */
-[data-testid="stChatMessage"] .stCaption {
-    font-size: 0.72rem !important;
-    letter-spacing: 0.03em;
-}
-
-/* ===== Markdown in Chat ===== */
+/* ===== Typography & Editorial Headlines ===== */
 [data-testid="stChatMessage"] p {
-    font-size: 0.9rem !important;
-    line-height: 1.7 !important;
+    font-size: 0.93rem !important;
+    line-height: 1.72 !important;
     color: var(--text-primary) !important;
 }
 
 [data-testid="stChatMessage"] h1, 
 [data-testid="stChatMessage"] h2, 
 [data-testid="stChatMessage"] h3 {
-    font-family: 'Inter', sans-serif !important;
-    font-weight: 600 !important;
+    font-family: 'Newsreader', Georgia, serif !important;
+    font-weight: 500 !important;
     letter-spacing: -0.02em;
-}
-
-[data-testid="stChatMessage"] ul, 
-[data-testid="stChatMessage"] ol {
-    padding-left: 1.25rem !important;
+    color: var(--text-primary) !important;
 }
 
 [data-testid="stChatMessage"] li {
-    font-size: 0.9rem !important;
-    line-height: 1.7 !important;
-    margin-bottom: 0.3rem !important;
+    font-size: 0.93rem !important;
+    line-height: 1.72 !important;
+    margin-bottom: 0.35rem !important;
 }
 
-/* ===== Dialog Styling ===== */
-[data-testid="stModal"] > div {
-    background: rgba(12, 12, 16, 0.95) !important;
-    backdrop-filter: blur(20px) !important;
-    border: 1px solid var(--border-subtle) !important;
-    border-radius: var(--radius-lg) !important;
-    box-shadow: var(--shadow-card) !important;
+/* ===== Memory Pill Tags (Claude Terracotta Style) ===== */
+.memory-pill {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.14), rgba(204, 120, 92, 0.08));
+    border: 1px solid rgba(217, 119, 6, 0.22);
+    color: #fcd34d;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.73rem;
+    font-weight: 500;
+    padding: 0.32rem 0.75rem;
+    border-radius: var(--radius-full);
+    margin: 0.15rem 0.2rem;
+    transition: var(--transition);
 }
 
-/* ===== Main Buttons ===== */
-.stButton > button {
-    font-family: 'Inter', sans-serif !important;
-    transition: var(--transition) !important;
-    border-radius: var(--radius-md) !important;
+.memory-pill:hover {
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.24), rgba(204, 120, 92, 0.16));
+    border-color: rgba(217, 119, 6, 0.45);
+    box-shadow: 0 0 12px rgba(217, 119, 6, 0.15);
+    transform: translateY(-1px);
+}
+
+/* ===== Tool Status Pill ===== */
+.tool-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(217, 119, 6, 0.1);
+    border: 1px solid rgba(217, 119, 6, 0.25);
+    color: #fbbf24;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.22rem 0.6rem;
+    border-radius: var(--radius-full);
+    margin-right: 0.35rem;
+    margin-bottom: 0.4rem;
+}
+
+/* ===== Typing indicator ===== */
+.typing-indicator {
+    display: inline-flex;
+    gap: 5px;
+    padding: 0.6rem 0;
+}
+
+.typing-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-amber);
+    border-radius: 50%;
+    animation: typingBounce 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.3; }
+    40% { transform: scale(1); opacity: 1; }
+}
+
+/* ===== Status Badge (sidebar) ===== */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    padding: 0.3rem 0;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
 }
 
 /* ===== Streamlit Header / Menu Styling ===== */
@@ -456,58 +514,56 @@ footer { visibility: hidden; }
     }
 }
 
-/* ===== Welcome Screen Container ===== */
+/* ===== Welcome Screen (Claude Editorial Hero) ===== */
 .welcome-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 60vh;
+    min-height: 55vh;
     text-align: center;
-    animation: fadeSlideIn 0.6s ease-out;
+    animation: claudeMessageIn 0.5s ease-out;
 }
 
 .welcome-logo {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     margin-bottom: 0.5rem;
-    filter: drop-shadow(0 0 20px rgba(124, 58, 237, 0.4));
+    filter: drop-shadow(0 0 24px rgba(217, 119, 6, 0.35));
 }
 
 .welcome-title {
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
-    font-size: 2.2rem;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 500;
+    font-size: 2.8rem;
+    color: var(--text-primary);
     letter-spacing: -0.03em;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.1;
 }
 
 .welcome-subtitle {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 0.98rem;
     color: var(--text-muted);
-    max-width: 420px;
-    line-height: 1.6;
+    max-width: 440px;
+    line-height: 1.65;
 }
 
-/* ===== Capability Cards ===== */
+/* ===== Capability Cards (21st.dev Minimalist Grid) ===== */
 .cap-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-top: 2rem;
-    max-width: 520px;
+    gap: 14px;
+    margin-top: 2.2rem;
+    max-width: 540px;
 }
 
 .cap-card {
     background: var(--bg-glass);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
-    padding: 1rem 1.1rem;
+    padding: 1.1rem 1.2rem;
     text-align: left;
     transition: var(--transition);
 }
@@ -521,83 +577,24 @@ footer { visibility: hidden; }
 
 .cap-icon {
     font-size: 1.3rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
 }
 
 .cap-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 600;
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     color: var(--text-primary);
     margin-bottom: 0.2rem;
 }
 
 .cap-desc {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 400;
-    font-size: 0.72rem;
+    font-size: 0.74rem;
     color: var(--text-muted);
-    line-height: 1.4;
+    line-height: 1.45;
 }
-
-/* ===== Memory Pill Tags ===== */
-.memory-pill {
-    display: inline-block;
-    background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(6, 182, 212, 0.08));
-    border: 1px solid rgba(124, 58, 237, 0.2);
-    color: #c4b5fd;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 500;
-    padding: 0.3rem 0.7rem;
-    border-radius: var(--radius-full);
-    margin: 0.15rem 0.2rem;
-    transition: var(--transition);
-}
-
-.memory-pill:hover {
-    background: linear-gradient(135deg, rgba(124, 58, 237, 0.25), rgba(6, 182, 212, 0.15));
-    border-color: rgba(124, 58, 237, 0.4);
-    box-shadow: 0 0 10px rgba(124, 58, 237, 0.15);
-}
-
-/* ===== Tool Status Pill ===== */
-.tool-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    background: rgba(6, 182, 212, 0.1);
-    border: 1px solid rgba(6, 182, 212, 0.2);
-    color: #67e8f9;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    font-weight: 500;
-    padding: 0.2rem 0.55rem;
-    border-radius: var(--radius-full);
-    margin-right: 0.35rem;
-    margin-bottom: 0.4rem;
-}
-
-/* ===== Typing indicator ===== */
-.typing-indicator {
-    display: inline-flex;
-    gap: 4px;
-    padding: 0.5rem 0;
-}
-
-.typing-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--accent-violet);
-    border-radius: 50%;
-    animation: typingBounce 1.4s infinite ease-in-out;
-}
-
-.typing-dot:nth-child(2) { animation-delay: 0.2s; }
-.typing-dot:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes typingBounce {
-    0%, 80%, 100% { transform: scale(0.6); opacity: 0.3; }
     40% { transform: scale(1); opacity: 1; }
 }
 
@@ -789,18 +786,18 @@ add_thread(st.session_state['thread_id'])
 # ======================= Sidebar UI =======================
 
 with st.sidebar:
-    # Brand Header
+    # Brand Header (Claude.ai Editorial Style)
     st.markdown("""
-    <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.25rem;">
-        <span style="font-size: 1.8rem; filter: drop-shadow(0 0 8px rgba(124,58,237,0.5));">🧠</span>
-        <span style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.5rem;
-            background: linear-gradient(135deg, #7c3aed, #06b6d4);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            letter-spacing: -0.03em;">NeuralChat</span>
-    </div>
-    <div class="status-badge">
-        <span class="status-dot"></span>
-        <span>AI Online · Gemini Flash</span>
+    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.4rem; padding: 0.2rem 0;">
+        <span style="font-size: 1.8rem; filter: drop-shadow(0 0 12px rgba(217, 119, 6, 0.4));">✦</span>
+        <div>
+            <div style="font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 1.55rem;
+                color: var(--text-primary); letter-spacing: -0.02em; line-height: 1.1;">NeuralChat</div>
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span>Active · Claude Aesthetic</span>
+            </div>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -952,32 +949,31 @@ with st.sidebar:
 if not st.session_state['message_history']:
     st.markdown("""
     <div class="welcome-container">
-        <div class="welcome-logo">🧠</div>
-        <div class="welcome-title">NeuralChat</div>
+        <div class="welcome-logo">✦</div>
+        <div class="welcome-title">Good day. How can I help?</div>
         <div class="welcome-subtitle">
-            Your AI assistant with persistent memory. I remember your preferences, 
-            search the web, analyze documents, and learn about you over time.
+            An intelligent assistant with persistent long-term memory, document synthesis, and real-time live tools.
         </div>
         <div class="cap-grid">
             <div class="cap-card">
-                <div class="cap-icon">💬</div>
-                <div class="cap-title">Smart Conversations</div>
-                <div class="cap-desc">Context-aware responses powered by Gemini</div>
-            </div>
-            <div class="cap-card">
-                <div class="cap-icon">🧠</div>
-                <div class="cap-title">Persistent Memory</div>
-                <div class="cap-desc">Remembers your name, skills & preferences</div>
+                <div class="cap-icon">💭</div>
+                <div class="cap-title">Personalized Memory</div>
+                <div class="cap-desc">Remembers your background, tools & preferences across sessions</div>
             </div>
             <div class="cap-card">
                 <div class="cap-icon">📄</div>
-                <div class="cap-title">Document Q&A</div>
-                <div class="cap-desc">Upload PDFs and ask questions about them</div>
+                <div class="cap-title">Document Synthesis</div>
+                <div class="cap-desc">Drop research PDFs for in-depth semantic Q&A and analysis</div>
+            </div>
+            <div class="cap-card">
+                <div class="cap-icon">⚡</div>
+                <div class="cap-title">Code & Technical Depth</div>
+                <div class="cap-desc">Architectural planning, refactoring, algorithms & debugging</div>
             </div>
             <div class="cap-card">
                 <div class="cap-icon">🌐</div>
-                <div class="cap-title">Live Search & Tools</div>
-                <div class="cap-desc">Web search, calculator & stock prices</div>
+                <div class="cap-title">Live Web & Financial Tools</div>
+                <div class="cap-desc">Real-time web search and live market data integration</div>
             </div>
         </div>
     </div>
