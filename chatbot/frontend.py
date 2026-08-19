@@ -685,16 +685,20 @@ def load_conversation(thread_id):
     return filtered_messages
 
 def chat_title(thread_id, query):
-    title = base_llm.invoke(f'Generate a concise title (max 5 words) for this conversation: {query}')
+    try:
+        title = base_llm.invoke(f'Generate a concise title (max 5 words) for this conversation: {query}')
 
-    # Handle different response formats
-    if isinstance(title.content, str):
-        title_text = title.content
-    elif isinstance(title.content, list) and len(title.content) > 0:
-        first = title.content[0]
-        title_text = first.get('text', '') if isinstance(first, dict) else str(first)
-    else:
-        title_text = 'Chat'
+        # Handle different response formats
+        if isinstance(title.content, str):
+            title_text = title.content
+        elif isinstance(title.content, list) and len(title.content) > 0:
+            first = title.content[0]
+            title_text = first.get('text', '') if isinstance(first, dict) else str(first)
+        else:
+            title_text = query[:25] + ('...' if len(query) > 25 else '')
+    except Exception as e:
+        print(f"[WARN] Error generating title: {e}")
+        title_text = query[:25] + ('...' if len(query) > 25 else '')
 
     # Trim to keep sidebar clean
     title_text = title_text.strip().strip('"').strip("'")[:40]
@@ -703,7 +707,10 @@ def chat_title(thread_id, query):
     st.session_state['chat_threads'][thread_id] = title_text
 
     # save to the database
-    save_chat_title(thread_id, title_text)
+    try:
+        save_chat_title(thread_id, title_text)
+    except Exception as e:
+        print(f"[WARN] Error saving title to db: {e}")
 
 def render_tool_badges(tools_used):
     """Render beautiful tool pills"""
