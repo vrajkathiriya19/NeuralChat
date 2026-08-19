@@ -1,6 +1,6 @@
 import streamlit as st
 from backend import (
-    chatbot, llm, get_all_threads, save_chat_title, delete_chat,
+    chatbot, llm, base_llm, get_all_threads, save_chat_title, delete_chat,
     process_pdf_for_thread, load_faiss_for_thread, retrieve_from_documents,
     _CURRENT_THREAD_ID, get_all_user_memories, delete_user_memory,
     clear_all_user_memories
@@ -685,7 +685,7 @@ def load_conversation(thread_id):
     return filtered_messages
 
 def chat_title(thread_id, query):
-    title = llm.invoke(f'Generate a concise title (max 5 words) for this conversation: {query}')
+    title = base_llm.invoke(f'Generate a concise title (max 5 words) for this conversation: {query}')
 
     # Handle different response formats
     if isinstance(title.content, str):
