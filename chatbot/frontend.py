@@ -24,114 +24,114 @@ st.set_page_config(
 # ======================= 21st.dev Inspired CSS =======================
 st.markdown("""
 <style>
-/* ===== Google Fonts: Newsreader (Editorial Serif) + Plus Jakarta Sans + JetBrains Mono ===== */
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+/* ===== Google Fonts: Inter Display + Geist / JetBrains Mono ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-/* ===== Claude.ai & 21st.dev Premium Theme Tokens ===== */
+/* ===== NexaCore & Shadcn 21st.dev SaaS Palette ===== */
 :root, [data-theme="dark"] {
-    --bg-primary: #0d0c0b;
-    --bg-secondary: #141210;
-    --bg-card: rgba(26, 23, 20, 0.75);
-    --bg-glass: rgba(255, 255, 255, 0.025);
-    --bg-glass-hover: rgba(255, 255, 255, 0.05);
-    --border-subtle: rgba(245, 240, 230, 0.06);
-    --border-active: rgba(217, 119, 6, 0.35);
-    --text-primary: #f5f0e8;
-    --text-secondary: #bfb5a5;
-    --text-muted: #7d7568;
-    --sidebar-bg: rgba(18, 16, 14, 0.92);
-    --user-msg-bg: rgba(38, 33, 28, 0.85);
-    --user-msg-border: rgba(217, 119, 6, 0.2);
-    --chat-input-bg: rgba(20, 18, 15, 0.95);
-    --ambient-opacity: 0.07;
-    --accent-terracotta: #cc785c;
-    --accent-amber: #d97706;
-    --accent-gold: #f59e0b;
-    --accent-clay: #e07a5f;
-    --gradient-brand: linear-gradient(135deg, #d97706, #cc785c 60%, #e07a5f);
-    --gradient-glow: linear-gradient(135deg, rgba(217, 119, 6, 0.2), rgba(204, 120, 92, 0.08));
-    --shadow-glow: 0 0 25px rgba(217, 119, 6, 0.12);
-    --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.4);
+    --bg-primary: #070709;
+    --bg-secondary: #0c0c11;
+    --bg-card: rgba(14, 14, 20, 0.75);
+    --bg-glass: rgba(255, 255, 255, 0.03);
+    --bg-glass-hover: rgba(255, 255, 255, 0.07);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-active: rgba(139, 92, 246, 0.45);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --sidebar-bg: rgba(10, 10, 15, 0.92);
+    --user-msg-bg: linear-gradient(135deg, rgba(124, 58, 237, 0.22), rgba(217, 70, 239, 0.12));
+    --user-msg-border: rgba(168, 85, 247, 0.35);
+    --chat-input-bg: rgba(12, 12, 18, 0.92);
+    --ambient-opacity: 0.12;
+    --accent-purple: #8b5cf6;
+    --accent-magenta: #d946ef;
+    --accent-cyan: #06b6d4;
+    --accent-emerald: #10b981;
+    --gradient-hero: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #06b6d4 100%);
+    --gradient-beam: linear-gradient(180deg, transparent 0%, rgba(139, 92, 246, 0.15) 60%, rgba(217, 70, 239, 0.25) 100%);
+    --shadow-glow: 0 0 30px rgba(168, 85, 247, 0.2);
+    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5);
     --radius-sm: 8px;
     --radius-md: 12px;
-    --radius-lg: 18px;
-    --radius-xl: 24px;
+    --radius-lg: 16px;
+    --radius-xl: 22px;
     --radius-full: 9999px;
     --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Light Mode (Claude Classic Warm Ivory) */
+/* Light Mode (Clean Slate & Precision Purple) */
 [data-theme="light"] {
-    --bg-primary: #faf8f5;
-    --bg-secondary: #f4efe8;
-    --bg-card: rgba(255, 255, 255, 0.95);
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-card: rgba(255, 255, 255, 0.92);
     --bg-glass: rgba(0, 0, 0, 0.02);
-    --bg-glass-hover: rgba(0, 0, 0, 0.04);
-    --border-subtle: rgba(0, 0, 0, 0.06);
-    --border-active: rgba(217, 119, 6, 0.4);
-    --text-primary: #2b2520;
-    --text-secondary: #63584e;
-    --text-muted: #9c8e7f;
-    --sidebar-bg: rgba(247, 243, 237, 0.95);
-    --user-msg-bg: #ece5da;
-    --user-msg-border: rgba(217, 119, 6, 0.2);
+    --bg-glass-hover: rgba(0, 0, 0, 0.05);
+    --border-subtle: rgba(0, 0, 0, 0.08);
+    --border-active: rgba(139, 92, 246, 0.5);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --sidebar-bg: rgba(255, 255, 255, 0.95);
+    --user-msg-bg: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(6, 182, 212, 0.08));
+    --user-msg-border: rgba(139, 92, 246, 0.3);
     --chat-input-bg: rgba(255, 255, 255, 0.98);
-    --ambient-opacity: 0.03;
-    --shadow-glow: 0 0 20px rgba(217, 119, 6, 0.08);
-    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.04);
+    --ambient-opacity: 0.04;
+    --shadow-glow: 0 0 20px rgba(139, 92, 246, 0.1);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 /* ===== Global Resets ===== */
 html, body, .stApp, [data-testid="stAppViewContainer"] {
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
     background-color: var(--bg-primary) !important;
     color: var(--text-primary) !important;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
 }
 
 .stApp {
     background: var(--bg-primary) !important;
 }
 
-/* 21st.dev Floating Particle & Aurora Ambient Background */
+/* NexaCore Style: High-Tech Radiant Fan-Beam & Grid Background */
 [data-testid="stAppViewContainer"]::before {
     content: '';
     position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: 
-        radial-gradient(ellipse at 15% 30%, rgba(217, 119, 6, var(--ambient-opacity)) 0%, transparent 45%),
-        radial-gradient(ellipse at 85% 20%, rgba(204, 120, 92, var(--ambient-opacity)) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 85%, rgba(224, 122, 95, 0.04) 0%, transparent 50%),
-        radial-gradient(circle at 60% 40%, rgba(245, 158, 11, 0.03) 0%, transparent 35%);
+        /* Subtle Grid Pattern */
+        linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        /* Top Ambient Purple Glow */
+        radial-gradient(circle at 50% -10%, rgba(139, 92, 246, var(--ambient-opacity)) 0%, transparent 60%),
+        /* Bottom Radiant NexaCore Fan Light Beam */
+        radial-gradient(ellipse at 50% 110%, rgba(217, 70, 239, 0.22) 0%, rgba(124, 58, 237, 0.15) 35%, transparent 70%),
+        /* Corner Cyan Accent */
+        radial-gradient(circle at 90% 90%, rgba(6, 182, 212, 0.08) 0%, transparent 50%);
+    background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%, 100% 100%;
     z-index: -1;
-    animation: claudeAurora 25s ease-in-out infinite alternate;
-}
-
-@keyframes claudeAurora {
-    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-    50% { transform: translate(-1.5%, 1%) scale(1.03) rotate(1deg); }
-    100% { transform: translate(1%, -1.5%) scale(0.98) rotate(-1deg); }
+    pointer-events: none;
 }
 
 /* ===== Custom Minimal Scrollbar ===== */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-    background: rgba(217, 119, 6, 0.25);
+    background: rgba(139, 92, 246, 0.3);
     border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(217, 119, 6, 0.45);
+    background: rgba(139, 92, 246, 0.55);
 }
 
-/* ===== Sidebar — Claude Editorial Dark ===== */
+/* ===== Sidebar — High-Tech Glass ===== */
 [data-testid="stSidebar"] {
     background: var(--sidebar-bg) !important;
-    backdrop-filter: blur(24px) saturate(1.1) !important;
-    -webkit-backdrop-filter: blur(24px) saturate(1.1) !important;
+    backdrop-filter: blur(24px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(1.2) !important;
     border-right: 1px solid var(--border-subtle) !important;
 }
 
@@ -142,17 +142,17 @@ html, body, .stApp, [data-testid="stAppViewContainer"] {
 
 /* ===== Sidebar Brand Header ===== */
 [data-testid="stSidebar"] h1 {
-    font-family: 'Newsreader', serif !important;
-    font-weight: 500 !important;
-    font-size: 1.7rem !important;
-    letter-spacing: -0.02em;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 1.6rem !important;
+    letter-spacing: -0.03em;
     color: var(--text-primary) !important;
 }
 
 /* ===== Sidebar Section Labels ===== */
 [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3, [data-testid="stSidebar"] h5 {
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
-    font-weight: 600 !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
     font-size: 0.72rem !important;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -169,7 +169,7 @@ html, body, .stApp, [data-testid="stAppViewContainer"] {
 
 /* ===== Sidebar Buttons (Conversation Cards) ===== */
 [data-testid="stSidebar"] .stButton > button {
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     font-weight: 500 !important;
     font-size: 0.84rem !important;
     background: var(--bg-glass) !important;
@@ -185,55 +185,55 @@ html, body, .stApp, [data-testid="stAppViewContainer"] {
     background: var(--bg-glass-hover) !important;
     border-color: var(--border-active) !important;
     color: var(--text-primary) !important;
-    box-shadow: var(--shadow-glow) !important;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.2) !important;
     transform: translateY(-1px);
 }
 
-/* ===== New Chat Button — Claude Terracotta Accent ===== */
+/* ===== New Chat Button — Gradient Pulse ===== */
 [data-testid="stSidebar"] .stButton > button[kind="secondary"]:first-of-type,
 .new-chat-btn > button,
 button[key="new_chat_btn"] {
-    background: var(--gradient-brand) !important;
-    color: #0f0e0d !important;
-    font-weight: 700 !important;
+    background: linear-gradient(135deg, #8b5cf6, #d946ef) !important;
+    color: white !important;
+    font-weight: 600 !important;
     border: none !important;
-    box-shadow: 0 4px 20px rgba(217, 119, 6, 0.25) !important;
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.35) !important;
     letter-spacing: -0.01em;
 }
 
 [data-testid="stSidebar"] .stButton > button[kind="secondary"]:first-of-type:hover,
 button[key="new_chat_btn"]:hover {
-    box-shadow: 0 6px 28px rgba(217, 119, 6, 0.45) !important;
+    box-shadow: 0 6px 28px rgba(217, 70, 239, 0.5) !important;
     transform: translateY(-2px) !important;
 }
 
 /* ===== File Uploader ===== */
 [data-testid="stSidebar"] [data-testid="stFileUploader"] {
     background: var(--bg-glass) !important;
-    border: 1px dashed rgba(217, 119, 6, 0.25) !important;
+    border: 1px dashed rgba(139, 92, 246, 0.3) !important;
     border-radius: var(--radius-md) !important;
     padding: 0.5rem !important;
 }
 
 [data-testid="stSidebar"] [data-testid="stFileUploader"]:hover {
-    border-color: var(--accent-amber) !important;
-    background: rgba(217, 119, 6, 0.04) !important;
+    border-color: var(--accent-purple) !important;
+    background: rgba(139, 92, 246, 0.06) !important;
 }
 
 /* ===== Slider ===== */
 [data-testid="stSidebar"] .stSlider > div > div > div {
-    background: var(--gradient-brand) !important;
+    background: linear-gradient(90deg, #8b5cf6, #d946ef) !important;
 }
 
 [data-testid="stSidebar"] .stSlider [data-testid="stThumbValue"] {
-    color: var(--accent-amber) !important;
+    color: var(--accent-purple) !important;
     font-weight: 600 !important;
 }
 
 /* ===== Main Content Area ===== */
 .main .block-container {
-    max-width: 840px !important;
-    padding-top: 2rem !important;
+    max-width: 860px !important;
+    padding-top: 1.5rem !important;
     padding-bottom: 6rem !important;
 }
 
@@ -241,12 +241,12 @@ button[key="new_chat_btn"]:hover {
 [data-testid="stChatMessage"] {
     background: transparent !important;
     border: none !important;
-    padding: 0.9rem 0 !important;
-    animation: claudeMessageIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0.85rem 0 !important;
+    animation: nexaSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes claudeMessageIn {
-    from { opacity: 0; transform: translateY(10px); }
+@keyframes nexaSlideIn {
+    from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -259,36 +259,36 @@ button[key="new_chat_btn"]:hover {
     background: var(--user-msg-bg) !important;
     border: 1px solid var(--user-msg-border) !important;
     border-radius: var(--radius-lg) var(--radius-lg) 4px var(--radius-lg) !important;
-    padding: 1rem 1.25rem !important;
+    padding: 0.95rem 1.2rem !important;
     max-width: 82%;
-    box-shadow: var(--shadow-card);
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.12);
 }
 
-/* AI Message Card (Claude Clean Minimal Box) */
+/* AI Message Card (NexaCore High-Contrast Card) */
 [data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-assistant"]) > div:last-child {
     background: var(--bg-card) !important;
     border: 1px solid var(--border-subtle) !important;
     border-radius: 4px var(--radius-lg) var(--radius-lg) var(--radius-lg) !important;
-    padding: 1.15rem 1.35rem !important;
-    backdrop-filter: blur(14px);
+    padding: 1.1rem 1.3rem !important;
+    backdrop-filter: blur(16px);
     max-width: 88%;
     box-shadow: var(--shadow-card);
 }
 
 /* Chat Avatars */
 [data-testid="chatAvatarIcon-user"] {
-    background: var(--gradient-brand) !important;
+    background: linear-gradient(135deg, #8b5cf6, #d946ef) !important;
     border-radius: var(--radius-full) !important;
 }
 
 [data-testid="chatAvatarIcon-assistant"] {
-    background: linear-gradient(135deg, #1f1b17, #33281e) !important;
-    border: 1px solid rgba(217, 119, 6, 0.3) !important;
+    background: linear-gradient(135deg, #181824, #271a38) !important;
+    border: 1px solid rgba(139, 92, 246, 0.4) !important;
     border-radius: var(--radius-full) !important;
-    box-shadow: 0 0 14px rgba(217, 119, 6, 0.15);
+    box-shadow: 0 0 16px rgba(139, 92, 246, 0.3);
 }
 
-/* ===== Floating Centered Prompt Input Bar (Claude Style) ===== */
+/* ===== Floating Centered Prompt Input Bar (NexaCore Style) ===== */
 [data-testid="stChatInput"] {
     background: transparent !important;
     border: none !important;
@@ -299,18 +299,18 @@ button[key="new_chat_btn"]:hover {
     backdrop-filter: blur(24px) !important;
     border: 1px solid var(--border-subtle) !important;
     border-radius: var(--radius-xl) !important;
-    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(245, 240, 230, 0.04) !important;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
     transition: var(--transition) !important;
     padding: 0.2rem 0.4rem !important;
 }
 
 [data-testid="stChatInput"] > div:focus-within {
-    border-color: var(--accent-amber) !important;
-    box-shadow: 0 -8px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(217, 119, 6, 0.18) !important;
+    border-color: var(--accent-purple) !important;
+    box-shadow: 0 -10px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(139, 92, 246, 0.25) !important;
 }
 
 [data-testid="stChatInput"] textarea {
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     font-size: 0.94rem !important;
     color: var(--text-primary) !important;
     line-height: 1.5 !important;
@@ -322,15 +322,15 @@ button[key="new_chat_btn"]:hover {
 
 /* Send Button */
 [data-testid="stChatInput"] button {
-    background: var(--gradient-brand) !important;
-    color: #0f0e0d !important;
+    background: linear-gradient(135deg, #8b5cf6, #d946ef) !important;
+    color: white !important;
     border: none !important;
     border-radius: var(--radius-full) !important;
     transition: var(--transition) !important;
 }
 
 [data-testid="stChatInput"] button:hover {
-    box-shadow: 0 0 16px rgba(217, 119, 6, 0.4) !important;
+    box-shadow: 0 0 20px rgba(217, 70, 239, 0.5) !important;
     transform: scale(1.06);
 }
 
@@ -341,51 +341,51 @@ code {
 }
 
 pre {
-    background: rgba(14, 13, 11, 0.85) !important;
+    background: rgba(8, 8, 12, 0.9) !important;
     border: 1px solid var(--border-subtle) !important;
     border-radius: var(--radius-md) !important;
     padding: 1.1rem !important;
 }
 
 p code, li code {
-    background: rgba(217, 119, 6, 0.12) !important;
-    color: #fcd34d !important;
+    background: rgba(139, 92, 246, 0.15) !important;
+    color: #c084fc !important;
     padding: 0.15rem 0.45rem !important;
     border-radius: 5px !important;
     font-size: 0.82rem !important;
 }
 
-/* ===== Typography & Editorial Headlines ===== */
+/* ===== Typography ===== */
 [data-testid="stChatMessage"] p {
     font-size: 0.93rem !important;
-    line-height: 1.72 !important;
+    line-height: 1.7 !important;
     color: var(--text-primary) !important;
 }
 
 [data-testid="stChatMessage"] h1, 
 [data-testid="stChatMessage"] h2, 
 [data-testid="stChatMessage"] h3 {
-    font-family: 'Newsreader', Georgia, serif !important;
-    font-weight: 500 !important;
-    letter-spacing: -0.02em;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.03em;
     color: var(--text-primary) !important;
 }
 
 [data-testid="stChatMessage"] li {
     font-size: 0.93rem !important;
-    line-height: 1.72 !important;
+    line-height: 1.7 !important;
     margin-bottom: 0.35rem !important;
 }
 
-/* ===== Memory Pill Tags (Claude Terracotta Style) ===== */
+/* ===== Memory Pill Tags (Nexa Purple/Cyan Glow) ===== */
 .memory-pill {
     display: inline-block;
-    background: linear-gradient(135deg, rgba(217, 119, 6, 0.14), rgba(204, 120, 92, 0.08));
-    border: 1px solid rgba(217, 119, 6, 0.22);
-    color: #fcd34d;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.16), rgba(6, 182, 212, 0.1));
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    color: #c4b5fd;
+    font-family: 'Inter', sans-serif;
     font-size: 0.73rem;
-    font-weight: 500;
+    font-weight: 600;
     padding: 0.32rem 0.75rem;
     border-radius: var(--radius-full);
     margin: 0.15rem 0.2rem;
@@ -393,9 +393,9 @@ p code, li code {
 }
 
 .memory-pill:hover {
-    background: linear-gradient(135deg, rgba(217, 119, 6, 0.24), rgba(204, 120, 92, 0.16));
-    border-color: rgba(217, 119, 6, 0.45);
-    box-shadow: 0 0 12px rgba(217, 119, 6, 0.15);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.28), rgba(217, 70, 239, 0.18));
+    border-color: rgba(168, 85, 247, 0.6);
+    box-shadow: 0 0 14px rgba(139, 92, 246, 0.25);
     transform: translateY(-1px);
 }
 
@@ -404,9 +404,9 @@ p code, li code {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    background: rgba(217, 119, 6, 0.1);
-    border: 1px solid rgba(217, 119, 6, 0.25);
-    color: #fbbf24;
+    background: rgba(6, 182, 212, 0.12);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    color: #67e8f9;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
     font-weight: 500;
@@ -426,7 +426,7 @@ p code, li code {
 .typing-dot {
     width: 6px;
     height: 6px;
-    background: var(--accent-amber);
+    background: var(--accent-purple);
     border-radius: 50%;
     animation: typingBounce 1.4s infinite ease-in-out;
 }
@@ -444,7 +444,7 @@ p code, li code {
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.72rem;
     color: var(--text-muted);
     padding: 0.3rem 0;
@@ -455,7 +455,7 @@ p code, li code {
     height: 6px;
     background: #10b981;
     border-radius: 50%;
-    box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
     animation: pulse 2s infinite;
 }
 
@@ -514,115 +514,106 @@ footer { visibility: hidden; }
     }
 }
 
-/* ===== 21st.dev Animated Hero Section ===== */
+/* ===== NexaCore Animated Hero Section ===== */
 .welcome-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 60vh;
+    min-height: 58vh;
     text-align: center;
-    animation: claudeMessageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: nexaSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
-    padding: 2rem 0 1rem 0;
+    padding: 2.5rem 0 1.5rem 0;
 }
 
-/* Glowing Chip Badge (21st.dev style) */
+/* Glowing Chip Badge (NexaCore 21st.dev style) */
 .hero-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(217, 119, 6, 0.08);
-    border: 1px solid rgba(217, 119, 6, 0.3);
-    padding: 0.35rem 0.95rem;
+    background: rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    padding: 0.4rem 1rem;
     border-radius: 9999px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.76rem;
-    font-weight: 600;
-    color: #fbbf24;
-    letter-spacing: 0.04em;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #e879f9;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     margin-bottom: 1.2rem;
-    box-shadow: 0 0 20px rgba(217, 119, 6, 0.15), inset 0 0 12px rgba(217, 119, 6, 0.08);
-    backdrop-filter: blur(10px);
-    animation: badgePulse 3s ease-in-out infinite alternate;
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.25), inset 0 0 15px rgba(139, 92, 246, 0.15);
+    backdrop-filter: blur(14px);
+    animation: nexaBadgePulse 3.5s ease-in-out infinite alternate;
 }
 
-@keyframes badgePulse {
-    0% { border-color: rgba(217, 119, 6, 0.3); box-shadow: 0 0 15px rgba(217, 119, 6, 0.1); }
-    100% { border-color: rgba(224, 122, 95, 0.6); box-shadow: 0 0 25px rgba(224, 122, 95, 0.25); }
+@keyframes nexaBadgePulse {
+    0% { border-color: rgba(139, 92, 246, 0.4); box-shadow: 0 0 20px rgba(139, 92, 246, 0.2); }
+    100% { border-color: rgba(6, 182, 212, 0.6); box-shadow: 0 0 30px rgba(6, 182, 212, 0.35); }
 }
 
 .hero-badge-dot {
     width: 6px;
     height: 6px;
-    background: #f59e0b;
+    background: #06b6d4;
     border-radius: 50%;
-    box-shadow: 0 0 8px #f59e0b;
-    animation: pulse 1.8s infinite;
+    box-shadow: 0 0 8px #06b6d4;
+    animation: pulse 1.6s infinite;
 }
 
-/* Shimmering Animated Gradient Headline (21st.dev Text Shimmer) */
+/* Bold Geometric Headline with Metallic/Chrome Gradient */
 .welcome-title {
-    font-family: 'Newsreader', Georgia, serif;
-    font-weight: 500;
-    font-size: 3.2rem;
-    letter-spacing: -0.035em;
-    line-height: 1.12;
-    margin-bottom: 0.8rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+    margin-bottom: 0.9rem;
     background: linear-gradient(
-        120deg,
-        #f5f0e8 0%,
-        #f59e0b 25%,
-        #cc785c 50%,
-        #e07a5f 75%,
-        #f5f0e8 100%
+        135deg,
+        #ffffff 0%,
+        #f1f5f9 30%,
+        #cbd5e1 55%,
+        #a855f7 85%,
+        #06b6d4 100%
     );
-    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: textShimmer 8s linear infinite;
-}
-
-@keyframes textShimmer {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
 
 .welcome-subtitle {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 1.05rem;
     color: var(--text-muted);
-    max-width: 520px;
+    max-width: 540px;
     line-height: 1.65;
-    margin-bottom: 2rem;
+    margin-bottom: 2.2rem;
 }
 
-/* 21st.dev Bento Grid Capability Cards */
+/* NexaCore Bento Grid Feature Cards with Status Chips */
 .cap-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-    max-width: 640px;
+    max-width: 660px;
     width: 100%;
 }
 
 .cap-card {
-    background: rgba(22, 19, 16, 0.65);
+    background: rgba(14, 14, 20, 0.7);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(245, 240, 230, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-lg);
-    padding: 1.3rem 1.35rem;
+    padding: 1.3rem 1.4rem;
     text-align: left;
     transition: var(--transition);
     position: relative;
     overflow: hidden;
 }
 
-/* Glowing gradient border beam on hover (21st.dev Border Beam) */
 .cap-card::before {
     content: '';
     position: absolute;
@@ -632,7 +623,7 @@ footer { visibility: hidden; }
     bottom: 0;
     border-radius: var(--radius-lg);
     padding: 1px;
-    background: linear-gradient(135deg, transparent 40%, rgba(217, 119, 6, 0.4), rgba(204, 120, 92, 0.6));
+    background: linear-gradient(135deg, transparent 30%, rgba(139, 92, 246, 0.6), rgba(6, 182, 212, 0.5));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -641,42 +632,61 @@ footer { visibility: hidden; }
 }
 
 .cap-card:hover {
-    background: rgba(30, 26, 21, 0.85);
+    background: rgba(20, 20, 30, 0.85);
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 25px rgba(217, 119, 6, 0.12);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45), 0 0 25px rgba(139, 92, 246, 0.2);
 }
 
 .cap-card:hover::before {
     opacity: 1;
 }
 
+.cap-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
 .cap-icon-box {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 10px;
-    background: linear-gradient(135deg, rgba(217, 119, 6, 0.15), rgba(204, 120, 92, 0.08));
-    border: 1px solid rgba(217, 119, 6, 0.25);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(217, 70, 239, 0.1));
+    border: 1px solid rgba(139, 92, 246, 0.35);
     font-size: 1.15rem;
-    margin-bottom: 0.75rem;
-    box-shadow: 0 0 12px rgba(217, 119, 6, 0.1);
+    box-shadow: 0 0 14px rgba(139, 92, 246, 0.18);
+}
+
+.cap-status-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.2rem 0.55rem;
+    border-radius: 9999px;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #34d399;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 .cap-title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
     color: var(--text-primary);
-    margin-bottom: 0.25rem;
-    letter-spacing: -0.01em;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.02em;
 }
 
 .cap-desc {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
     line-height: 1.5;
 }
@@ -871,16 +881,18 @@ add_thread(st.session_state['thread_id'])
 # ======================= Sidebar UI =======================
 
 with st.sidebar:
-    # Brand Header (Claude.ai Editorial Style)
+    # Brand Header (NexaCore 21st.dev Style)
     st.markdown("""
-    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.4rem; padding: 0.2rem 0;">
-        <span style="font-size: 1.8rem; filter: drop-shadow(0 0 12px rgba(217, 119, 6, 0.4));">✦</span>
+    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; padding: 0.2rem 0;">
+        <span style="font-size: 1.8rem; filter: drop-shadow(0 0 14px rgba(168, 85, 247, 0.6));">⚡</span>
         <div>
-            <div style="font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 1.55rem;
-                color: var(--text-primary); letter-spacing: -0.02em; line-height: 1.1;">NeuralChat</div>
+            <div style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.45rem;
+                background: linear-gradient(135deg, #ffffff 0%, #c084fc 60%, #06b6d4 100%);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                letter-spacing: -0.03em; line-height: 1.1;">NeuralChat</div>
             <div class="status-badge">
                 <span class="status-dot"></span>
-                <span>Active · Claude Aesthetic</span>
+                <span>NexaCore 4.0 · Live</span>
             </div>
         </div>
     </div>
@@ -1036,32 +1048,44 @@ if not st.session_state['message_history']:
     <div class="welcome-container">
         <div class="hero-badge">
             <span class="hero-badge-dot"></span>
-            <span>Neural 3.0 · Cognitive Engine</span>
+            <span>✦ NEXUS AI 4.0 · DEEP REASONING</span>
         </div>
-        <div class="welcome-title">Where Intelligence Meets Memory</div>
+        <div class="welcome-title">Engineer and Scale with Clarity</div>
         <div class="welcome-subtitle">
-            Experience next-generation conversational AI with persistent long-term recall, deep document synthesis, and multi-agent tools.
+            Autonomous multi-tool intelligence with persistent vector memory, semantic document synthesis, and real-time execution.
         </div>
         <div class="cap-grid">
             <div class="cap-card">
-                <div class="cap-icon-box">🧠</div>
-                <div class="cap-title">Persistent Recall</div>
-                <div class="cap-desc">Remembers your technical stack, preferences & goals with vector deduplication</div>
+                <div class="cap-header-row">
+                    <div class="cap-icon-box">🧠</div>
+                    <span class="cap-status-pill">ACTIVE</span>
+                </div>
+                <div class="cap-title">Contextual Memory</div>
+                <div class="cap-desc">Auto-learns your tech stack and personal preferences with FAISS vector deduplication</div>
             </div>
             <div class="cap-card">
-                <div class="cap-icon-box">📄</div>
+                <div class="cap-header-row">
+                    <div class="cap-icon-box">📄</div>
+                    <span class="cap-status-pill">RAG READY</span>
+                </div>
                 <div class="cap-title">Deep Document Synthesis</div>
-                <div class="cap-desc">Semantic vector retrieval across uploaded research papers & manuals</div>
+                <div class="cap-desc">Drop research PDFs and codebase manuals for instantaneous semantic Q&A</div>
             </div>
             <div class="cap-card">
-                <div class="cap-icon-box">⚡</div>
-                <div class="cap-title">Engineering Depth</div>
-                <div class="cap-desc">Full-stack coding, algorithm design, architecture & debugging</div>
+                <div class="cap-header-row">
+                    <div class="cap-icon-box">⚡</div>
+                    <span class="cap-status-pill">TURBO</span>
+                </div>
+                <div class="cap-title">Advanced Reasoning & Code</div>
+                <div class="cap-desc">Architectural planning, algorithmic refactoring, and multi-step debugging</div>
             </div>
             <div class="cap-card">
-                <div class="cap-icon-box">🌐</div>
-                <div class="cap-title">Real-Time Tools</div>
-                <div class="cap-desc">Live internet search, stock market quotes & safe calculation</div>
+                <div class="cap-header-row">
+                    <div class="cap-icon-box">🌐</div>
+                    <span class="cap-status-pill">LIVE FEED</span>
+                </div>
+                <div class="cap-title">Live Web & Financial Tools</div>
+                <div class="cap-desc">Real-time web search and live market data integration</div>
             </div>
         </div>
     </div>

@@ -8,8 +8,8 @@ gatherUsageStats = false
 
 [theme]
 base = "dark"
-primaryColor = "#d97706"
-backgroundColor = "#0d0c0b"
-secondaryBackgroundColor = "#141210"
-textColor = "#f5f0e8"
+primaryColor = "#8b5cf6"
+backgroundColor = "#070709"
+secondaryBackgroundColor = "#0c0c11"
+textColor = "#f8fafc"
 font = "sans serif"
