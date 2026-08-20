@@ -24,60 +24,61 @@ st.set_page_config(
 # ======================= 21st.dev Inspired CSS =======================
 st.markdown("""
 <style>
-/* ===== Google Fonts: Inter Display + JetBrains Mono ===== */
+/* ===== Google Fonts: Inter Display + Geist / JetBrains Mono ===== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-/* ===== Lovable.dev Vibrant Mesh Theme Tokens ===== */
+/* ===== NexaCore & Shadcn 21st.dev SaaS Palette ===== */
 :root, [data-theme="dark"] {
-    --bg-primary: #0a0a0c;
-    --bg-secondary: #121216;
-    --bg-card: rgba(18, 18, 24, 0.85);
-    --bg-glass: rgba(255, 255, 255, 0.04);
-    --bg-glass-hover: rgba(255, 255, 255, 0.08);
+    --bg-primary: #070709;
+    --bg-secondary: #0c0c11;
+    --bg-card: rgba(14, 14, 20, 0.75);
+    --bg-glass: rgba(255, 255, 255, 0.03);
+    --bg-glass-hover: rgba(255, 255, 255, 0.07);
     --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-active: rgba(236, 72, 153, 0.5);
-    --text-primary: #ffffff;
+    --border-active: rgba(139, 92, 246, 0.45);
+    --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
     --text-muted: #64748b;
-    --sidebar-bg: #0d0d11;
-    --user-msg-bg: linear-gradient(135deg, rgba(236, 72, 153, 0.25), rgba(99, 102, 241, 0.25));
-    --user-msg-border: rgba(236, 72, 153, 0.4);
-    --chat-input-bg: #18181f;
-    --accent-pink: #ec4899;
+    --sidebar-bg: rgba(10, 10, 15, 0.92);
+    --user-msg-bg: linear-gradient(135deg, rgba(124, 58, 237, 0.22), rgba(217, 70, 239, 0.12));
+    --user-msg-border: rgba(168, 85, 247, 0.35);
+    --chat-input-bg: rgba(12, 12, 18, 0.92);
+    --ambient-opacity: 0.12;
     --accent-purple: #8b5cf6;
-    --accent-blue: #3b82f6;
+    --accent-magenta: #d946ef;
     --accent-cyan: #06b6d4;
-    --accent-coral: #ff6b6b;
-    --gradient-hero: linear-gradient(135deg, #ff6b6b 0%, #ec4899 35%, #8b5cf6 70%, #3b82f6 100%);
-    --gradient-lovable: linear-gradient(135deg, #f43f5e 0%, #ec4899 40%, #8b5cf6 80%, #3b82f6 100%);
-    --shadow-glow: 0 0 35px rgba(236, 72, 153, 0.3);
-    --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.6);
+    --accent-emerald: #10b981;
+    --gradient-hero: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #06b6d4 100%);
+    --gradient-beam: linear-gradient(180deg, transparent 0%, rgba(139, 92, 246, 0.15) 60%, rgba(217, 70, 239, 0.25) 100%);
+    --shadow-glow: 0 0 30px rgba(168, 85, 247, 0.2);
+    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5);
     --radius-sm: 8px;
     --radius-md: 12px;
-    --radius-lg: 18px;
-    --radius-xl: 26px;
+    --radius-lg: 16px;
+    --radius-xl: 22px;
     --radius-full: 9999px;
     --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Light Mode (Clean Slate & Lovable Pastel Glow) */
+/* Light Mode (Clean Slate & Precision Purple) */
 [data-theme="light"] {
-    --bg-primary: #fafafa;
+    --bg-primary: #f8fafc;
     --bg-secondary: #ffffff;
-    --bg-card: rgba(255, 255, 255, 0.95);
+    --bg-card: rgba(255, 255, 255, 0.92);
     --bg-glass: rgba(0, 0, 0, 0.02);
     --bg-glass-hover: rgba(0, 0, 0, 0.05);
     --border-subtle: rgba(0, 0, 0, 0.08);
-    --border-active: rgba(236, 72, 153, 0.5);
+    --border-active: rgba(139, 92, 246, 0.5);
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --text-muted: #94a3b8;
-    --sidebar-bg: #f4f4f7;
-    --user-msg-bg: linear-gradient(135deg, rgba(236, 72, 153, 0.12), rgba(99, 102, 241, 0.1));
-    --user-msg-border: rgba(236, 72, 153, 0.3);
-    --chat-input-bg: #ffffff;
-    --shadow-glow: 0 0 25px rgba(236, 72, 153, 0.15);
-    --shadow-card: 0 4px 25px rgba(0, 0, 0, 0.06);
+    --sidebar-bg: rgba(255, 255, 255, 0.95);
+    --user-msg-bg: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(6, 182, 212, 0.08));
+    --user-msg-border: rgba(139, 92, 246, 0.3);
+    --chat-input-bg: rgba(255, 255, 255, 0.98);
+    --ambient-opacity: 0.04;
+    --shadow-glow: 0 0 20px rgba(139, 92, 246, 0.1);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 /* ===== Global Resets ===== */
@@ -92,7 +93,7 @@ html, body, .stApp, [data-testid="stAppViewContainer"] {
     background: var(--bg-primary) !important;
 }
 
-/* ===== Lovable Vibrant Multicolored Mesh Aurora Background ===== */
+/* NexaCore Style: High-Tech Radiant Fan-Beam & Grid Background */
 [data-testid="stAppViewContainer"]::before {
     content: '';
     position: fixed;
@@ -101,77 +102,51 @@ html, body, .stApp, [data-testid="stAppViewContainer"] {
     width: 100%;
     height: 100%;
     background: 
-        /* Top Left Coral/Sunset Glow */
-        radial-gradient(circle at 10% 15%, rgba(255, 107, 107, 0.35) 0%, transparent 45%),
-        /* Top Right Electric Blue Glow */
-        radial-gradient(circle at 90% 18%, rgba(59, 130, 246, 0.4) 0%, transparent 50%),
-        /* Center Vivid Pink/Magenta Core */
-        radial-gradient(ellipse at 50% 45%, rgba(236, 72, 153, 0.38) 0%, transparent 60%),
-        /* Mid-Left Purple */
-        radial-gradient(circle at 15% 65%, rgba(139, 92, 246, 0.35) 0%, transparent 50%),
-        /* Bottom Cyan Accent */
-        radial-gradient(circle at 80% 85%, rgba(6, 182, 212, 0.25) 0%, transparent 45%);
-    filter: blur(40px);
+        /* Subtle Grid Pattern */
+        linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        /* Top Ambient Purple Glow */
+        radial-gradient(circle at 50% -10%, rgba(139, 92, 246, var(--ambient-opacity)) 0%, transparent 60%),
+        /* Bottom Radiant NexaCore Fan Light Beam */
+        radial-gradient(ellipse at 50% 110%, rgba(217, 70, 239, 0.22) 0%, rgba(124, 58, 237, 0.15) 35%, transparent 70%),
+        /* Corner Cyan Accent */
+        radial-gradient(circle at 90% 90%, rgba(6, 182, 212, 0.08) 0%, transparent 50%);
+    background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%, 100% 100%;
     z-index: -1;
     pointer-events: none;
-    animation: lovableShift 18s ease-in-out infinite alternate;
-}
-
-@keyframes lovableShift {
-    0% { transform: scale(1) rotate(0deg); opacity: 0.95; }
-    50% { transform: scale(1.04) rotate(1.5deg); opacity: 1; }
-    100% { transform: scale(0.98) rotate(-1.5deg); opacity: 0.9; }
 }
 
 /* ===== Custom Minimal Scrollbar ===== */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-    background: rgba(236, 72, 153, 0.3);
+    background: rgba(139, 92, 246, 0.3);
     border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(236, 72, 153, 0.6);
+    background: rgba(139, 92, 246, 0.55);
 }
 
-/* ===== Sidebar — Lovable Minimalist Dark ===== */
+/* ===== Sidebar — High-Tech Glass ===== */
 [data-testid="stSidebar"] {
     background: var(--sidebar-bg) !important;
+    backdrop-filter: blur(24px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(1.2) !important;
     border-right: 1px solid var(--border-subtle) !important;
 }
 
 [data-testid="stSidebar"] > div:first-child {
     background: transparent !important;
-    padding-top: 1rem !important;
+    padding-top: 1.5rem !important;
 }
 
-/* Sidebar Profile / Workspace Card */
-.sidebar-workspace-pill {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    padding: 0.55rem 0.75rem;
-    margin-bottom: 1rem;
-    font-size: 0.86rem;
-    font-weight: 600;
-    color: var(--text-primary);
-}
-
-.workspace-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 22px;
-    height: 22px;
-    background: linear-gradient(135deg, #f43f5e, #ec4899);
-    border-radius: 6px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: white;
-    margin-right: 0.5rem;
+/* ===== Sidebar Brand Header ===== */
+[data-testid="stSidebar"] h1 {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 1.6rem !important;
+    letter-spacing: -0.03em;
+    color: var(--text-primary) !important;
 }
 
 /* ===== Sidebar Section Labels ===== */
@@ -180,16 +155,16 @@ html, body, .stApp, [data-testid="stAppViewContainer"] {
     font-weight: 700 !important;
     font-size: 0.72rem !important;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     color: var(--text-muted) !important;
-    margin-top: 0.8rem !important;
+    margin-top: 0.6rem !important;
     margin-bottom: 0.4rem !important;
 }
 
 /* ===== Sidebar Dividers ===== */
 [data-testid="stSidebar"] hr {
     border-color: var(--border-subtle) !important;
-    margin: 0.75rem 0 !important;
+    margin: 0.85rem 0 !important;
 }
 
 /* ===== Sidebar Buttons (Conversation Cards) ===== */
@@ -197,103 +172,68 @@ html, body, .stApp, [data-testid="stAppViewContainer"] {
     font-family: 'Inter', sans-serif !important;
     font-weight: 500 !important;
     font-size: 0.84rem !important;
-    background: transparent !important;
+    background: var(--bg-glass) !important;
     color: var(--text-secondary) !important;
-    border: 1px solid transparent !important;
+    border: 1px solid var(--border-subtle) !important;
     border-radius: var(--radius-md) !important;
-    padding: 0.55rem 0.85rem !important;
+    padding: 0.6rem 0.9rem !important;
     transition: var(--transition) !important;
     text-align: left !important;
 }
 
 [data-testid="stSidebar"] .stButton > button:hover {
-    background: rgba(255, 255, 255, 0.06) !important;
-    border-color: var(--border-subtle) !important;
+    background: var(--bg-glass-hover) !important;
+    border-color: var(--border-active) !important;
     color: var(--text-primary) !important;
-    transform: translateX(2px);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.2) !important;
+    transform: translateY(-1px);
 }
 
-/* ===== New Chat Button — Lovable Gradient Button ===== */
+/* ===== New Chat Button — Gradient Pulse ===== */
 [data-testid="stSidebar"] .stButton > button[kind="secondary"]:first-of-type,
 .new-chat-btn > button,
 button[key="new_chat_btn"] {
-    background: linear-gradient(135deg, #ff6b6b, #ec4899, #8b5cf6) !important;
+    background: linear-gradient(135deg, #8b5cf6, #d946ef) !important;
     color: white !important;
     font-weight: 600 !important;
     border: none !important;
-    border-radius: var(--radius-md) !important;
-    box-shadow: 0 4px 18px rgba(236, 72, 153, 0.4) !important;
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.35) !important;
     letter-spacing: -0.01em;
 }
 
 [data-testid="stSidebar"] .stButton > button[kind="secondary"]:first-of-type:hover,
 button[key="new_chat_btn"]:hover {
-    box-shadow: 0 6px 25px rgba(236, 72, 153, 0.6) !important;
+    box-shadow: 0 6px 28px rgba(217, 70, 239, 0.5) !important;
     transform: translateY(-2px) !important;
-}
-
-/* ===== Upgrade to Pro Pill (Lovable Sidebar Bottom Card) ===== */
-.pro-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    padding: 0.8rem 0.9rem;
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.pro-card-title {
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--text-primary);
-}
-
-.pro-card-subtitle {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-}
-
-.pro-icon-badge {
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #8b5cf6, #ec4899);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
-    color: white;
 }
 
 /* ===== File Uploader ===== */
 [data-testid="stSidebar"] [data-testid="stFileUploader"] {
     background: var(--bg-glass) !important;
-    border: 1px dashed rgba(236, 72, 153, 0.3) !important;
+    border: 1px dashed rgba(139, 92, 246, 0.3) !important;
     border-radius: var(--radius-md) !important;
     padding: 0.5rem !important;
 }
 
 [data-testid="stSidebar"] [data-testid="stFileUploader"]:hover {
-    border-color: var(--accent-pink) !important;
-    background: rgba(236, 72, 153, 0.06) !important;
+    border-color: var(--accent-purple) !important;
+    background: rgba(139, 92, 246, 0.06) !important;
 }
 
 /* ===== Slider ===== */
 [data-testid="stSidebar"] .stSlider > div > div > div {
-    background: var(--gradient-lovable) !important;
+    background: linear-gradient(90deg, #8b5cf6, #d946ef) !important;
 }
 
 [data-testid="stSidebar"] .stSlider [data-testid="stThumbValue"] {
-    color: var(--accent-pink) !important;
+    color: var(--accent-purple) !important;
     font-weight: 600 !important;
 }
 
 /* ===== Main Content Area ===== */
 .main .block-container {
-    max-width: 900px !important;
-    padding-top: 2rem !important;
+    max-width: 860px !important;
+    padding-top: 1.5rem !important;
     padding-bottom: 6rem !important;
 }
 
@@ -302,11 +242,11 @@ button[key="new_chat_btn"]:hover {
     background: transparent !important;
     border: none !important;
     padding: 0.85rem 0 !important;
-    animation: lovableSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: nexaSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes lovableSlideIn {
-    from { opacity: 0; transform: translateY(14px); }
+@keyframes nexaSlideIn {
+    from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -319,35 +259,36 @@ button[key="new_chat_btn"]:hover {
     background: var(--user-msg-bg) !important;
     border: 1px solid var(--user-msg-border) !important;
     border-radius: var(--radius-lg) var(--radius-lg) 4px var(--radius-lg) !important;
-    padding: 0.95rem 1.25rem !important;
+    padding: 0.95rem 1.2rem !important;
     max-width: 82%;
-    box-shadow: 0 4px 20px rgba(236, 72, 153, 0.15);
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.12);
 }
 
-/* AI Message Card */
+/* AI Message Card (NexaCore High-Contrast Card) */
 [data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-assistant"]) > div:last-child {
     background: var(--bg-card) !important;
     border: 1px solid var(--border-subtle) !important;
     border-radius: 4px var(--radius-lg) var(--radius-lg) var(--radius-lg) !important;
-    padding: 1.15rem 1.35rem !important;
-    backdrop-filter: blur(18px);
+    padding: 1.1rem 1.3rem !important;
+    backdrop-filter: blur(16px);
     max-width: 88%;
     box-shadow: var(--shadow-card);
 }
 
 /* Chat Avatars */
 [data-testid="chatAvatarIcon-user"] {
-    background: linear-gradient(135deg, #f43f5e, #ec4899) !important;
+    background: linear-gradient(135deg, #8b5cf6, #d946ef) !important;
     border-radius: var(--radius-full) !important;
 }
 
 [data-testid="chatAvatarIcon-assistant"] {
-    background: linear-gradient(135deg, #8b5cf6, #3b82f6) !important;
+    background: linear-gradient(135deg, #181824, #271a38) !important;
+    border: 1px solid rgba(139, 92, 246, 0.4) !important;
     border-radius: var(--radius-full) !important;
-    box-shadow: 0 0 16px rgba(139, 92, 246, 0.4);
+    box-shadow: 0 0 16px rgba(139, 92, 246, 0.3);
 }
 
-/* ===== Lovable Chat Input Capsule ===== */
+/* ===== Floating Centered Prompt Input Bar (NexaCore Style) ===== */
 [data-testid="stChatInput"] {
     background: transparent !important;
     border: none !important;
@@ -358,19 +299,19 @@ button[key="new_chat_btn"]:hover {
     backdrop-filter: blur(24px) !important;
     border: 1px solid var(--border-subtle) !important;
     border-radius: var(--radius-xl) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
     transition: var(--transition) !important;
-    padding: 0.35rem 0.6rem !important;
+    padding: 0.2rem 0.4rem !important;
 }
 
 [data-testid="stChatInput"] > div:focus-within {
-    border-color: var(--accent-pink) !important;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(236, 72, 153, 0.3) !important;
+    border-color: var(--accent-purple) !important;
+    box-shadow: 0 -10px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(139, 92, 246, 0.25) !important;
 }
 
 [data-testid="stChatInput"] textarea {
     font-family: 'Inter', sans-serif !important;
-    font-size: 0.95rem !important;
+    font-size: 0.94rem !important;
     color: var(--text-primary) !important;
     line-height: 1.5 !important;
 }
@@ -381,7 +322,7 @@ button[key="new_chat_btn"]:hover {
 
 /* Send Button */
 [data-testid="stChatInput"] button {
-    background: linear-gradient(135deg, #f43f5e, #ec4899) !important;
+    background: linear-gradient(135deg, #8b5cf6, #d946ef) !important;
     color: white !important;
     border: none !important;
     border-radius: var(--radius-full) !important;
@@ -389,13 +330,34 @@ button[key="new_chat_btn"]:hover {
 }
 
 [data-testid="stChatInput"] button:hover {
-    box-shadow: 0 0 20px rgba(236, 72, 153, 0.6) !important;
+    box-shadow: 0 0 20px rgba(217, 70, 239, 0.5) !important;
     transform: scale(1.06);
+}
+
+/* ===== Code Blocks ===== */
+code {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.85rem !important;
+}
+
+pre {
+    background: rgba(8, 8, 12, 0.9) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 1.1rem !important;
+}
+
+p code, li code {
+    background: rgba(139, 92, 246, 0.15) !important;
+    color: #c084fc !important;
+    padding: 0.15rem 0.45rem !important;
+    border-radius: 5px !important;
+    font-size: 0.82rem !important;
 }
 
 /* ===== Typography ===== */
 [data-testid="stChatMessage"] p {
-    font-size: 0.94rem !important;
+    font-size: 0.93rem !important;
     line-height: 1.7 !important;
     color: var(--text-primary) !important;
 }
@@ -410,17 +372,17 @@ button[key="new_chat_btn"]:hover {
 }
 
 [data-testid="stChatMessage"] li {
-    font-size: 0.94rem !important;
+    font-size: 0.93rem !important;
     line-height: 1.7 !important;
     margin-bottom: 0.35rem !important;
 }
 
-/* ===== Memory Pill Tags ===== */
+/* ===== Memory Pill Tags (Nexa Purple/Cyan Glow) ===== */
 .memory-pill {
     display: inline-block;
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.18), rgba(139, 92, 246, 0.15));
-    border: 1px solid rgba(236, 72, 153, 0.35);
-    color: #f472b6;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.16), rgba(6, 182, 212, 0.1));
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    color: #c4b5fd;
     font-family: 'Inter', sans-serif;
     font-size: 0.73rem;
     font-weight: 600;
@@ -431,9 +393,9 @@ button[key="new_chat_btn"]:hover {
 }
 
 .memory-pill:hover {
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(139, 92, 246, 0.25));
-    border-color: rgba(236, 72, 153, 0.6);
-    box-shadow: 0 0 14px rgba(236, 72, 153, 0.3);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.28), rgba(217, 70, 239, 0.18));
+    border-color: rgba(168, 85, 247, 0.6);
+    box-shadow: 0 0 14px rgba(139, 92, 246, 0.25);
     transform: translateY(-1px);
 }
 
@@ -442,9 +404,9 @@ button[key="new_chat_btn"]:hover {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    background: rgba(59, 130, 246, 0.15);
-    border: 1px solid rgba(59, 130, 246, 0.35);
-    color: #93c5fd;
+    background: rgba(6, 182, 212, 0.12);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    color: #67e8f9;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
     font-weight: 500;
@@ -464,7 +426,7 @@ button[key="new_chat_btn"]:hover {
 .typing-dot {
     width: 6px;
     height: 6px;
-    background: var(--accent-pink);
+    background: var(--accent-purple);
     border-radius: 50%;
     animation: typingBounce 1.4s infinite ease-in-out;
 }
@@ -485,7 +447,7 @@ button[key="new_chat_btn"]:hover {
     font-family: 'Inter', sans-serif;
     font-size: 0.72rem;
     color: var(--text-muted);
-    padding: 0.2rem 0;
+    padding: 0.3rem 0;
 }
 
 .status-dot {
@@ -514,179 +476,219 @@ header {
 
 footer { visibility: hidden; }
 
-/* ===== Lovable Hero Section ===== */
-.lovable-hero-container {
+/* ===== Clean Print Styles ===== */
+@media print {
+    [data-testid="stSidebar"], 
+    header, 
+    [data-testid="stChatInput"],
+    .welcome-container,
+    .stButton {
+        display: none !important;
+    }
+    
+    html, body, .stApp, [data-testid="stAppViewContainer"] {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+    
+    [data-testid="stAppViewContainer"]::before {
+        display: none !important;
+    }
+    
+    .main .block-container {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    [data-testid="stChatMessage"] > div:last-child {
+        background: transparent !important;
+        border: 1px solid #e2e8f0 !important;
+        color: #000000 !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+    }
+    
+    [data-testid="stChatMessage"] p,
+    [data-testid="stChatMessage"] li {
+        color: #000000 !important;
+    }
+}
+
+/* ===== NexaCore Animated Hero Section ===== */
+.welcome-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 48vh;
+    min-height: 58vh;
     text-align: center;
-    padding: 2.5rem 0 1rem 0;
+    animation: nexaSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
+    padding: 2.5rem 0 1.5rem 0;
 }
 
-/* Top Connected Tools Pill (Lovable Style) */
-.tools-connect-pill {
+/* Glowing Chip Badge (NexaCore 21st.dev style) */
+.hero-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    background: rgba(18, 18, 24, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    padding: 0.35rem 0.95rem;
+    gap: 0.5rem;
+    background: rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    padding: 0.4rem 1rem;
     border-radius: 9999px;
-    font-size: 0.82rem;
-    font-weight: 500;
-    color: #e2e8f0;
-    margin-bottom: 1.4rem;
-    backdrop-filter: blur(16px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    cursor: default;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #e879f9;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.25), inset 0 0 15px rgba(139, 92, 246, 0.15);
+    backdrop-filter: blur(14px);
+    animation: nexaBadgePulse 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes nexaBadgePulse {
+    0% { border-color: rgba(139, 92, 246, 0.4); box-shadow: 0 0 20px rgba(139, 92, 246, 0.2); }
+    100% { border-color: rgba(6, 182, 212, 0.6); box-shadow: 0 0 30px rgba(6, 182, 212, 0.35); }
+}
+
+.hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    background: #06b6d4;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #06b6d4;
+    animation: pulse 1.6s infinite;
+}
+
+/* Bold Geometric Headline with Metallic/Chrome Gradient */
+.welcome-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+    margin-bottom: 0.9rem;
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #f1f5f9 30%,
+        #cbd5e1 55%,
+        #a855f7 85%,
+        #06b6d4 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.welcome-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 540px;
+    line-height: 1.65;
+    margin-bottom: 2.2rem;
+}
+
+/* NexaCore Bento Grid Feature Cards with Status Chips */
+.cap-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 660px;
+    width: 100%;
+}
+
+.cap-card {
+    background: rgba(14, 14, 20, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 1.3rem 1.4rem;
+    text-align: left;
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 }
 
-.tools-connect-pill:hover {
-    border-color: rgba(236, 72, 153, 0.4);
-    box-shadow: 0 0 20px rgba(236, 72, 153, 0.2);
+.cap-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius-lg);
+    padding: 1px;
+    background: linear-gradient(135deg, transparent 30%, rgba(139, 92, 246, 0.6), rgba(6, 182, 212, 0.5));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.tool-mini-icons {
+.cap-card:hover {
+    background: rgba(20, 20, 30, 0.85);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45), 0 0 25px rgba(139, 92, 246, 0.2);
+}
+
+.cap-card:hover::before {
+    opacity: 1;
+}
+
+.cap-header-row {
     display: flex;
     align-items: center;
-    gap: -4px;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
 }
 
-.tool-mini-icon {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
+.cap-icon-box {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.68rem;
-    border: 1.5px solid #18181f;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(217, 70, 239, 0.1));
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    font-size: 1.15rem;
+    box-shadow: 0 0 14px rgba(139, 92, 246, 0.18);
 }
 
-/* Main Lovable Headline: "Let's build something, Vraj" */
-.lovable-title {
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
-    font-size: 3.2rem;
-    letter-spacing: -0.04em;
-    color: #ffffff;
-    margin-bottom: 1.6rem;
-    line-height: 1.1;
-}
-
-/* Lovable Mock Action Capsule Bar */
-.lovable-input-capsule {
-    background: #181820;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 18px;
-    padding: 1.2rem 1.4rem;
-    max-width: 620px;
-    width: 100%;
-    margin-bottom: 2.5rem;
-    text-align: left;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
-}
-
-.lovable-input-placeholder {
-    color: #64748b;
-    font-size: 0.94rem;
-    margin-bottom: 1.2rem;
-}
-
-.lovable-input-actions {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #94a3b8;
-    font-size: 0.85rem;
-}
-
-/* Bottom Projects / Capabilities Card (Lovable Style) */
-.lovable-bottom-section {
-    background: #111116;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px 20px 0 0;
-    padding: 1.5rem 1.8rem;
-    max-width: 860px;
-    width: 100%;
-    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
-}
-
-.lovable-filter-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.2rem;
-}
-
-.lovable-filters {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-}
-
-.lovable-filter-btn {
-    padding: 0.35rem 0.85rem;
-    border-radius: 9999px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: #94a3b8;
-    background: transparent;
-    border: 1px solid transparent;
-}
-
-.lovable-filter-btn.active {
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+.cap-status-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
     font-weight: 600;
-}
-
-.lovable-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-}
-
-.lovable-feature-card {
-    background: rgba(24, 24, 32, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 14px;
-    padding: 1.1rem 1.25rem;
-    text-align: left;
-    transition: var(--transition);
-}
-
-.lovable-feature-card:hover {
-    border-color: rgba(236, 72, 153, 0.4);
-    background: rgba(30, 30, 42, 0.9);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-}
-
-.lovable-card-tag {
-    font-size: 0.68rem;
-    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    border-radius: 9999px;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #34d399;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: #ec4899;
-    margin-bottom: 0.3rem;
 }
 
-.lovable-card-title {
-    font-size: 0.92rem;
+.cap-title {
+    font-family: 'Inter', sans-serif;
     font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.02em;
 }
 
-.lovable-card-desc {
-    font-size: 0.78rem;
-    color: #94a3b8;
-    line-height: 1.45;
+.cap-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
 }
     40% { transform: scale(1); opacity: 1; }
 }
@@ -879,23 +881,20 @@ add_thread(st.session_state['thread_id'])
 # ======================= Sidebar UI =======================
 
 with st.sidebar:
-    # Brand Header (Lovable.dev Workspace Style)
+    # Brand Header (NexaCore 21st.dev Style)
     st.markdown("""
-    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.8rem; padding: 0.2rem 0;">
-        <div style="display: flex; align-items: center; gap: 0.6rem;">
-            <span style="font-size: 1.6rem; filter: drop-shadow(0 0 12px rgba(236, 72, 153, 0.6));">🔥</span>
-            <div style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.35rem; color: #ffffff; letter-spacing: -0.03em;">NeuralChat</div>
+    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; padding: 0.2rem 0;">
+        <span style="font-size: 1.8rem; filter: drop-shadow(0 0 14px rgba(168, 85, 247, 0.6));">⚡</span>
+        <div>
+            <div style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.45rem;
+                background: linear-gradient(135deg, #ffffff 0%, #c084fc 60%, #06b6d4 100%);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                letter-spacing: -0.03em; line-height: 1.1;">NeuralChat</div>
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span>NexaCore 4.0 · Live</span>
+            </div>
         </div>
-        <div class="status-badge">
-            <span class="status-dot"></span>
-        </div>
-    </div>
-    <div class="sidebar-workspace-pill">
-        <div style="display: flex; align-items: center;">
-            <span class="workspace-badge">V</span>
-            <span>Vraj's Workspace</span>
-        </div>
-        <span style="color: #64748b; font-size: 0.75rem;">▾</span>
     </div>
     """, unsafe_allow_html=True)
 
@@ -1043,67 +1042,50 @@ with st.sidebar:
 
 # ======================= Main Chat Area =======================
 
-# Welcome Screen (when no messages) - Exact Lovable.dev UI
+# Welcome Screen (when no messages)
 if not st.session_state['message_history']:
     st.markdown("""
-    <div class="lovable-hero-container">
-        <div class="tools-connect-pill">
-            <div class="tool-mini-icons">
-                <span class="tool-mini-icon" style="background: #ef4444; color: white;">M</span>
-                <span class="tool-mini-icon" style="background: #3b82f6; color: white;">🌐</span>
-                <span class="tool-mini-icon" style="background: #10b981; color: white;">📄</span>
-                <span class="tool-mini-icon" style="background: #eab308; color: black;">⚡</span>
-            </div>
-            <span>Connect all your tools →</span>
+    <div class="welcome-container">
+        <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            <span>✦ NEXUS AI 4.0 · DEEP REASONING</span>
         </div>
-        
-        <div class="lovable-title">Let's build something, Vraj</div>
-        
-        <div class="lovable-input-capsule">
-            <div class="lovable-input-placeholder">Ask NeuralChat to create, analyze, or synthesize anything below...</div>
-            <div class="lovable-input-actions">
-                <span style="font-size: 1.1rem; cursor: pointer;">＋</span>
-                <div style="display: flex; align-items: center; gap: 1rem;">
-                    <span style="display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 600; color: #f8fafc;">
-                        Build <span style="font-size: 0.65rem;">▾</span>
-                    </span>
-                    <span style="font-size: 1rem; cursor: pointer;">🎙️</span>
-                </div>
-            </div>
+        <div class="welcome-title">Engineer and Scale with Clarity</div>
+        <div class="welcome-subtitle">
+            Autonomous multi-tool intelligence with persistent vector memory, semantic document synthesis, and real-time execution.
         </div>
-
-        <div class="lovable-bottom-section">
-            <div class="lovable-filter-row">
-                <div class="lovable-filters">
-                    <span style="color: #64748b; font-size: 0.85rem; margin-right: 0.2rem;">🔍 Search</span>
-                    <button class="lovable-filter-btn active">My Capabilities</button>
-                    <button class="lovable-filter-btn">Recent Memory</button>
-                    <button class="lovable-filter-btn">Templates</button>
+        <div class="cap-grid">
+            <div class="cap-card">
+                <div class="cap-header-row">
+                    <div class="cap-icon-box">🧠</div>
+                    <span class="cap-status-pill">ACTIVE</span>
                 </div>
-                <span style="color: #94a3b8; font-size: 0.78rem; font-weight: 500; cursor: pointer;">Browse all →</span>
+                <div class="cap-title">Contextual Memory</div>
+                <div class="cap-desc">Auto-learns your tech stack and personal preferences with FAISS vector deduplication</div>
             </div>
-            
-            <div class="lovable-cards-grid">
-                <div class="lovable-feature-card">
-                    <div class="lovable-card-tag">Memory Core</div>
-                    <div class="lovable-card-title">Persistent Semantic Recall</div>
-                    <div class="lovable-card-desc">Remembers your custom preferences, codebases, and technical details across sessions.</div>
+            <div class="cap-card">
+                <div class="cap-header-row">
+                    <div class="cap-icon-box">📄</div>
+                    <span class="cap-status-pill">RAG READY</span>
                 </div>
-                <div class="lovable-feature-card">
-                    <div class="lovable-card-tag">RAG Engine</div>
-                    <div class="lovable-card-title">Document Intelligence</div>
-                    <div class="lovable-card-desc">Upload PDFs to the sidebar for fast semantic search and deep content synthesis.</div>
+                <div class="cap-title">Deep Document Synthesis</div>
+                <div class="cap-desc">Drop research PDFs and codebase manuals for instantaneous semantic Q&A</div>
+            </div>
+            <div class="cap-card">
+                <div class="cap-header-row">
+                    <div class="cap-icon-box">⚡</div>
+                    <span class="cap-status-pill">TURBO</span>
                 </div>
-                <div class="lovable-feature-card">
-                    <div class="lovable-card-tag">Multi-Agent Tools</div>
-                    <div class="lovable-card-title">Live Web & Stock Analytics</div>
-                    <div class="lovable-card-desc">Real-time financial tickers, search engine indexing, and Python calculations.</div>
+                <div class="cap-title">Advanced Reasoning & Code</div>
+                <div class="cap-desc">Architectural planning, algorithmic refactoring, and multi-step debugging</div>
+            </div>
+            <div class="cap-card">
+                <div class="cap-header-row">
+                    <div class="cap-icon-box">🌐</div>
+                    <span class="cap-status-pill">LIVE FEED</span>
                 </div>
-                <div class="lovable-feature-card">
-                    <div class="lovable-card-tag">Engineering Depth</div>
-                    <div class="lovable-card-title">Full-Stack Synthesis</div>
-                    <div class="lovable-card-desc">Architect scalable systems, refactor complex algorithms, and debug in real time.</div>
-                </div>
+                <div class="cap-title">Live Web & Financial Tools</div>
+                <div class="cap-desc">Real-time web search and live market data integration</div>
             </div>
         </div>
     </div>
