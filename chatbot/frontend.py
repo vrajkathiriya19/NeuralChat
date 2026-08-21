@@ -251,52 +251,70 @@ button[key="new_chat_btn"]:hover {
     line-height: 1.35;
 }
 
-/* ===== Modal Dialog Custom Modern Styling ===== */
+/* ===== Modal Dialog Custom Modern Styling (NeuralChat NexaCore Theme) ===== */
 div[data-testid="stDialog"] div[role="dialog"] {
-    background: #0c0c14 !important;
-    border: 1px solid rgba(139, 92, 246, 0.3) !important;
-    border-radius: 18px !important;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(139, 92, 246, 0.15) !important;
-    padding: 1.5rem !important;
-    max-width: 520px !important;
+    background: #07070a !important;
+    border: 1px solid rgba(139, 92, 246, 0.4) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), 0 0 40px rgba(139, 92, 246, 0.22) !important;
+    padding: 1.6rem !important;
+    max-width: 500px !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Modal Subtle Radial Top Glow */
+div[data-testid="stDialog"] div[role="dialog"]::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 20%;
+    width: 60%;
+    height: 120px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 div[data-testid="stDialog"] div[role="dialog"] h2 {
     font-family: 'Inter', sans-serif !important;
     font-weight: 800 !important;
-    font-size: 1.25rem !important;
-    letter-spacing: -0.02em !important;
-    color: #ffffff !important;
-    padding-bottom: 0.25rem !important;
+    font-size: 1.3rem !important;
+    letter-spacing: -0.025em !important;
+    background: linear-gradient(135deg, #ffffff 0%, #c084fc 60%, #06b6d4 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    padding-bottom: 0.2rem !important;
 }
 
 .modal-body-container {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    margin-top: 0.5rem;
+    gap: 0.85rem;
+    margin-top: 0.25rem;
 }
 
 .modal-step-box {
-    background: rgba(255, 255, 255, 0.025);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    padding: 1rem;
+    background: rgba(14, 14, 22, 0.85);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 14px;
+    padding: 1rem 1.15rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    transition: all 0.2s ease;
+    gap: 0.4rem;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .modal-step-box:hover {
-    border-color: rgba(139, 92, 246, 0.25);
-    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(139, 92, 246, 0.45);
+    box-shadow: 0 6px 24px rgba(139, 92, 246, 0.15);
+    transform: translateY(-1px);
 }
 
 .modal-step-header {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.65rem;
     font-size: 0.88rem;
     font-weight: 700;
     color: #f8fafc;
@@ -306,35 +324,37 @@ div[data-testid="stDialog"] div[role="dialog"] h2 {
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #8b5cf6, #d946ef);
+    background: linear-gradient(135deg, #8b5cf6, #06b6d4);
     color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.72rem;
     font-weight: 800;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
 }
 
 .modal-step-desc {
     font-size: 0.8rem;
     color: #94a3b8;
-    line-height: 1.4;
+    line-height: 1.45;
     margin: 0;
 }
 
 div[data-testid="stDialog"] div[data-testid="stTextInput"] input {
-    background: #07070a !important;
+    background: rgba(10, 10, 16, 0.95) !important;
     border: 1px solid rgba(139, 92, 246, 0.35) !important;
-    border-radius: 10px !important;
-    color: #ffffff !important;
+    border-radius: 12px !important;
+    color: #f8fafc !important;
     font-family: 'JetBrains Mono', monospace !important;
     font-size: 0.84rem !important;
-    padding: 0.65rem 0.85rem !important;
+    padding: 0.7rem 0.9rem !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5) !important;
 }
 
 div[data-testid="stDialog"] div[data-testid="stTextInput"] input:focus {
-    border-color: #a855f7 !important;
-    box-shadow: 0 0 16px rgba(168, 85, 247, 0.3) !important;
+    border-color: #c084fc !important;
+    box-shadow: 0 0 18px rgba(192, 132, 252, 0.35), inset 0 2px 4px rgba(0, 0, 0, 0.5) !important;
 }
 
 /* ===== Custom Sidebar Input Field Styling ===== */
