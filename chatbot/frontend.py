@@ -881,20 +881,13 @@ add_thread(st.session_state['thread_id'])
 # ======================= Sidebar UI =======================
 
 with st.sidebar:
-    # Brand Header (NexaCore 21st.dev Style)
+    # Brand Header
     st.markdown("""
-    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; padding: 0.2rem 0;">
-        <span style="font-size: 1.8rem; filter: drop-shadow(0 0 14px rgba(168, 85, 247, 0.6));">⚡</span>
-        <div>
-            <div style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.45rem;
-                background: linear-gradient(135deg, #ffffff 0%, #c084fc 60%, #06b6d4 100%);
-                -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-                letter-spacing: -0.03em; line-height: 1.1;">NeuralChat</div>
-            <div class="status-badge">
-                <span class="status-dot"></span>
-                <span>NexaCore 4.0 · Live</span>
-            </div>
-        </div>
+    <div style="margin-bottom: 0.6rem; padding: 0.2rem 0;">
+        <div style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.55rem;
+            background: linear-gradient(135deg, #ffffff 0%, #c084fc 60%, #06b6d4 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            letter-spacing: -0.03em; line-height: 1.1;">NeuralChat</div>
     </div>
     """, unsafe_allow_html=True)
 
