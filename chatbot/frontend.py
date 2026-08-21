@@ -1117,17 +1117,8 @@ with st.sidebar:
                 st.info("Reset to default server key.")
                 st.rerun()
 
-    # Sidebar Box & Generate Button
-    st.markdown("""
-    <div class="api-key-card">
-        <div class="api-key-title">⚡ Dedicated API Key</div>
-        <div class="api-key-subtitle">
-            Generate your own free key to bypass shared rate limits.
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    if st.button("🔑 Generate / Connect Key", key="open_api_key_modal", use_container_width=True):
+    # Sidebar Generate Key Button
+    if st.button("🔑 Generate Key", key="open_api_key_modal", use_container_width=True):
         api_key_dialog()
 
     if st.session_state.get("custom_gemini_api_key"):
