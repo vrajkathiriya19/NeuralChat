@@ -284,6 +284,9 @@ div[data-testid="stDialog"] div[role="dialog"] h2 {
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     padding-bottom: 0.2rem !important;
+    text-align: center !important;
+    width: 100% !important;
+    display: block !important;
 }
 
 .modal-body-container {
@@ -1139,15 +1142,13 @@ with st.sidebar:
                 <p class="modal-step-desc">
                     Create a free key in Google AI Studio with zero billing required:
                 </p>
-            </div>
-        </div>
         """, unsafe_allow_html=True)
 
         st.link_button("🌐 Open Google AI Studio ↗", "https://aistudio.google.com/app/apikey", use_container_width=True)
 
         st.markdown("""
-        <div class="modal-body-container" style="margin-top: 0.75rem;">
-            <div class="modal-step-box">
+            </div>
+            <div class="modal-step-box" style="margin-top: 0.75rem;">
                 <div class="modal-step-header">
                     <span class="modal-step-badge">2</span>
                     <span>Paste Key Below</span>
@@ -1174,7 +1175,7 @@ with st.sidebar:
 
         col_save, col_clear = st.columns([1.5, 1])
         with col_save:
-            if st.button("✨ Save & Activate", use_container_width=True, type="primary"):
+            if st.button("Save & Activate", use_container_width=True, type="primary"):
                 if dialog_key_input.strip():
                     st.session_state["custom_gemini_api_key"] = dialog_key_input.strip()
                     set_custom_api_key(dialog_key_input.strip())
