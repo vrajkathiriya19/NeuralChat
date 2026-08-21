@@ -1118,7 +1118,7 @@ with st.sidebar:
                 st.rerun()
 
     # Sidebar Generate Key Button
-    if st.button("🔑 Generate Key", key="open_api_key_modal", use_container_width=True):
+    if st.button("Generate Key", key="open_api_key_modal", use_container_width=True):
         api_key_dialog()
 
     if st.session_state.get("custom_gemini_api_key"):
