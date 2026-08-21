@@ -1127,7 +1127,7 @@ with st.sidebar:
     st.markdown("##### ⚙️ Settings")
 
     # API Key Dialog Modal (Popup) - Redesigned Modern UI
-    @st.dialog("⚡ Connect Dedicated API Key")
+    @st.dialog("Connect Dedicated API Key")
     def api_key_dialog():
         st.markdown("""
         <div class="modal-body-container">
