@@ -3,7 +3,7 @@ from backend import (
     chatbot, llm, base_llm, get_all_threads, save_chat_title, delete_chat,
     process_pdf_for_thread, load_faiss_for_thread, retrieve_from_documents,
     _CURRENT_THREAD_ID, get_all_user_memories, delete_user_memory,
-    clear_all_user_memories
+    clear_all_user_memories, set_custom_api_key, set_keep_recent
 )
 from langchain_core.messages import HumanMessage, AIMessage, ToolMessage
 import uuid
@@ -948,8 +948,6 @@ with st.sidebar:
         key="custom_gemini_api_key",
         help="Optional: Paste your own free Gemini API key to bypass shared rate limits."
     )
-    
-    from backend import set_custom_api_key, set_keep_recent
     if custom_key_input:
         set_custom_api_key(custom_key_input)
         st.caption("✨ Using your custom API key quota")
