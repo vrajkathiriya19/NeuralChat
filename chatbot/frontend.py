@@ -1046,8 +1046,6 @@ if not st.session_state['message_history']:
     st.markdown("""
     <div class="welcome-container">
         <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            <span style="color: #a855f7; font-size: 0.8rem;">✦</span>
             <span class="hero-badge-text">NeuralChat</span>
         </div>
         <div class="welcome-title">Engineer and Scale with Clarity</div>
