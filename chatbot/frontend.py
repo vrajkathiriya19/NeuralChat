@@ -1037,7 +1037,7 @@ with st.sidebar:
 
     custom_key_input = st.text_input(
         "Enter your Gemini API Key",
-        type="password",
+        type="default",
         placeholder="Paste AIzaSy key here...",
         key="custom_gemini_api_key",
         label_visibility="collapsed",
