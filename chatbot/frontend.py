@@ -1142,11 +1142,9 @@ with st.sidebar:
                 <p class="modal-step-desc">
                     Create a free key in Google AI Studio with zero billing required:
                 </p>
-        """, unsafe_allow_html=True)
-
-        st.link_button("🌐 Open Google AI Studio ↗", "https://aistudio.google.com/app/apikey", use_container_width=True)
-
-        st.markdown("""
+                <div style="margin-top: 0.5rem; text-align: center;">
+                    <a href="https://aistudio.google.com/app/apikey" target="_blank" style="display: inline-block; width: 100%; padding: 0.55rem 1rem; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.35); border-radius: 8px; color: #f8fafc; text-decoration: none; font-weight: 600; font-size: 0.84rem;">🌐 Open Google AI Studio ↗</a>
+                </div>
             </div>
             <div class="modal-step-box" style="margin-top: 0.75rem;">
                 <div class="modal-step-header">
