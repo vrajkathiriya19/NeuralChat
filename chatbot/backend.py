@@ -89,44 +89,24 @@ def submit_async_task(coro):
 base_llm = ChatGoogleGenerativeAI(model='gemini-3.6-flash', google_api_key=GOOGLE_API_KEY)
 llm = base_llm
 
-def validate_and_set_custom_api_key(custom_key: str) -> tuple[bool, str]:
+def set_custom_api_key(custom_key: str):
     """
-    Validate and update API keys for LLM and embeddings when a visitor provides their own key.
-    Returns: (is_valid: bool, message: str)
+    Dynamically update API keys for LLM and embeddings when a visitor provides their own key.
+    If empty or None, resets back to the default server API key.
     """
     global GOOGLE_API_KEY, base_llm, llm, embeddings_model, tools, tool_node
-    active_key = custom_key.strip() if (custom_key and custom_key.strip()) else ""
-    
+    active_key = custom_key.strip() if (custom_key and custom_key.strip()) else GOOGLE_API_KEY
     if not active_key:
-        # Reset to default key
-        base_llm = ChatGoogleGenerativeAI(model='gemini-3.6-flash', google_api_key=GOOGLE_API_KEY)
-        llm = base_llm.bind_tools(tools)
-        embeddings_model = GoogleGenerativeAIEmbeddings(
-            model="models/gemini-embedding-001",
-            google_api_key=GOOGLE_API_KEY
-        )
-        return True, "Reset to default application key."
-
+        return
     try:
-        # Create test instance to validate key
-        test_llm = ChatGoogleGenerativeAI(model='gemini-3.6-flash', google_api_key=active_key, max_retries=1)
-        test_llm.invoke("test")
-
-        # Key is valid: update global model instances
-        base_llm = test_llm
+        base_llm = ChatGoogleGenerativeAI(model='gemini-3.6-flash', google_api_key=active_key)
         llm = base_llm.bind_tools(tools)
         embeddings_model = GoogleGenerativeAIEmbeddings(
             model="models/gemini-embedding-001",
             google_api_key=active_key
         )
-        return True, "API key validated and activated successfully!"
     except Exception as e:
-        print(f"[WARN] Invalid API key provided: {e}")
-        return False, f"Invalid API key: {str(e)}"
-
-def set_custom_api_key(custom_key: str):
-    """Dynamically update API keys without blocking validation if already verified."""
-    validate_and_set_custom_api_key(custom_key)
+        print(f"[WARN] Error updating custom API key: {e}")
 
 # ======================= Chat History Management =======================
 # Global setting for how many recent messages to keep

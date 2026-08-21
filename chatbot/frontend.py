@@ -3,8 +3,7 @@ from backend import (
     chatbot, llm, base_llm, get_all_threads, save_chat_title, delete_chat,
     process_pdf_for_thread, load_faiss_for_thread, retrieve_from_documents,
     _CURRENT_THREAD_ID, get_all_user_memories, delete_user_memory,
-    clear_all_user_memories, set_custom_api_key, set_keep_recent,
-    validate_and_set_custom_api_key
+    clear_all_user_memories, set_custom_api_key, set_keep_recent
 )
 from langchain_core.messages import HumanMessage, AIMessage, ToolMessage
 import uuid
@@ -286,7 +285,7 @@ button[key="new_chat_btn"]:hover {
     border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 10px;
     padding: 0.8rem 1rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 
 .modal-step-num {
@@ -301,50 +300,6 @@ button[key="new_chat_btn"]:hover {
     font-weight: 700;
     border-radius: 50%;
     margin-right: 0.5rem;
-}
-
-/* ===== Landing Page API Banner Card ===== */
-.hero-api-banner {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, rgba(6, 182, 212, 0.06) 100%);
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    border-radius: var(--radius-lg);
-    padding: 1.1rem 1.4rem;
-    margin-top: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    transition: var(--transition);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
-}
-
-.hero-api-banner:hover {
-    border-color: rgba(139, 92, 246, 0.55);
-    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.2);
-}
-
-.hero-api-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
-.hero-api-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    letter-spacing: -0.01em;
-}
-
-.hero-api-desc {
-    font-size: 0.82rem;
-    color: #94a3b8;
-    line-height: 1.4;
-    margin: 0;
 }
 
 /* ===== Custom Sidebar Input Field Styling ===== */
@@ -1117,74 +1072,50 @@ with st.sidebar:
     st.markdown("##### ⚙️ Settings")
 
     # API Key Dialog Modal (Popup)
-    @st.dialog("⚡ Use Your Own API Key")
+    @st.dialog("⚡ Connect Your Dedicated Gemini API Key")
     def api_key_dialog():
         st.markdown("""
-        <div class="modal-subtitle" style="margin-bottom: 1.25rem;">
-            You can generate your own Google AI Studio API key and use it with this application. This allows your requests to use your own personal API quota and limits.
+        <div class="modal-header-badge">✦ DEDICATED SPEED & UNLIMITED QUOTA</div>
+        <div class="modal-subtitle">
+            Generate your own free key in 10 seconds from Google AI Studio to bypass all shared rate limits and experience instant response times.
         </div>
         """, unsafe_allow_html=True)
 
-        # OPTION 1 — GET API KEY
-        st.markdown("##### Option 1 — Get API Key")
-        st.caption("Generate a free API key from Google AI Studio in a few seconds:")
-        st.link_button("🌐 Open Google AI Studio ↗", "https://aistudio.google.com/app/apikey", use_container_width=True)
+        col_link, col_info = st.columns([1.8, 1])
+        with col_link:
+            st.link_button("🌐 Step 1: Open Google AI Studio ↗", "https://aistudio.google.com/app/apikey", use_container_width=True)
 
-        st.markdown("<div style='margin: 1.2rem 0; border-top: 1px solid rgba(255,255,255,0.08);'></div>", unsafe_allow_html=True)
+        st.markdown("""
+        <div class="modal-step-card">
+            <span class="modal-step-num">2</span> <b>Paste your key below:</b>
+        </div>
+        """, unsafe_allow_html=True)
 
-        # OPTION 2 — PASTE API KEY
-        st.markdown("##### Option 2 — Paste API Key")
-        st.caption("Paste your API key here to connect it directly to your session:")
+        dialog_key_input = st.text_input(
+            "Gemini API Key",
+            type="default",
+            placeholder="AIzaSy...",
+            value=st.session_state.get("custom_gemini_api_key", ""),
+            label_visibility="collapsed",
+            help="Your key is stored only in your active browser session and never saved to any database."
+        )
 
-        if "show_api_key_text" not in st.session_state:
-            st.session_state["show_api_key_text"] = False
-
-        col_input, col_toggle = st.columns([5, 1.2])
-        with col_input:
-            key_input_type = "default" if st.session_state["show_api_key_text"] else "password"
-            raw_val = st.session_state.get("custom_gemini_api_key", "")
-            dialog_key_input = st.text_input(
-                "Paste your API key here",
-                type=key_input_type,
-                placeholder="AIzaSy...",
-                value=raw_val,
-                label_visibility="collapsed",
-                help="Your API key is stored only in your active browser session and never saved to any database, file, or logs."
-            )
-        with col_toggle:
-            toggle_label = "🙈 Hide" if st.session_state["show_api_key_text"] else "👁️ Show"
-            if st.button(toggle_label, use_container_width=True):
-                st.session_state["show_api_key_text"] = not st.session_state["show_api_key_text"]
-                st.rerun()
-
-        # If key is currently active, show masked info
-        if st.session_state.get("custom_gemini_api_key"):
-            masked_key = st.session_state["custom_gemini_api_key"][:6] + "••••••••••••••••" + st.session_state["custom_gemini_api_key"][-4:]
-            st.markdown(f"<div style='font-size: 0.75rem; color: #34d399; margin: 0.35rem 0;'>✅ Active Key: <code>{masked_key}</code></div>", unsafe_allow_html=True)
-
-        st.markdown("")
-        col_save, col_clear = st.columns([1.5, 1])
+        col_save, col_clear = st.columns([1, 1])
         with col_save:
-            if st.button("✨ Save API Key", use_container_width=True, type="primary"):
+            if st.button("✨ Save & Activate Key", use_container_width=True, type="primary"):
                 if dialog_key_input.strip():
-                    with st.spinner("Validating API key with Google AI Studio..."):
-                        is_valid, msg = validate_and_set_custom_api_key(dialog_key_input.strip())
-                    if is_valid:
-                        st.session_state["custom_gemini_api_key"] = dialog_key_input.strip()
-                        st.success("API key saved successfully. Your requests will now use your personal API key.")
-                        st.rerun()
-                    else:
-                        st.error("Invalid API key. Please check your key and try again.")
+                    st.session_state["custom_gemini_api_key"] = dialog_key_input.strip()
+                    set_custom_api_key(dialog_key_input.strip())
+                    st.success("✅ Dedicated API Key Activated!")
+                    st.rerun()
                 else:
                     st.warning("Please paste a valid key first.")
         with col_clear:
-            if st.button("Reset to Default", use_container_width=True):
+            if st.button("Reset to Default Key", use_container_width=True):
                 st.session_state["custom_gemini_api_key"] = ""
-                validate_and_set_custom_api_key("")
-                st.info("Reset to application default key.")
+                set_custom_api_key("")
+                st.info("Reset to default server key.")
                 st.rerun()
-
-        st.markdown("<div style='font-size: 0.72rem; color: #64748b; margin-top: 0.75rem; line-height: 1.4;'>🔒 Security note: Your API key is your own Google API credential. It remains strictly in your active browser session memory and is never logged or stored server-side.</div>", unsafe_allow_html=True)
 
     # Sidebar Box & Generate Button
     st.markdown("""
@@ -1348,22 +1279,6 @@ if not st.session_state['message_history']:
         </div>
     </div>
     """, unsafe_allow_html=True)
-
-    # Generate Your Own API Card on Landing Page
-    col_banner_card, col_gen_btn = st.columns([3.8, 1.2])
-    with col_banner_card:
-        st.markdown("""
-        <div class="hero-api-banner" style="margin-top: 0;">
-            <div class="hero-api-content">
-                <div class="hero-api-title">🔑 Generate Your Own API</div>
-                <div class="hero-api-desc">Use your own Google AI Studio API key for your requests.</div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-    with col_gen_btn:
-        st.markdown("<div style='height: 0.35rem;'></div>", unsafe_allow_html=True)
-        if st.button("Generate", key="landing_generate_api_btn", use_container_width=True, type="primary"):
-            api_key_dialog()
 
 # Render conversation history
 for message in st.session_state['message_history']:
