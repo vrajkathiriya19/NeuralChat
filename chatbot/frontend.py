@@ -274,6 +274,33 @@ button[key="new_chat_btn"]:hover {
     margin-bottom: 0.5rem;
 }
 
+/* ===== Custom Sidebar Input Field Styling ===== */
+[data-testid="stSidebar"] div[data-testid="stTextInput"] > div > div {
+    background: rgba(14, 14, 20, 0.85) !important;
+    border: 1px solid rgba(139, 92, 246, 0.35) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5) !important;
+    transition: all 0.25s ease !important;
+}
+
+[data-testid="stSidebar"] div[data-testid="stTextInput"] > div > div:focus-within {
+    border-color: #a855f7 !important;
+    box-shadow: 0 0 16px rgba(168, 85, 247, 0.4), inset 0 1px 3px rgba(0,0,0,0.5) !important;
+}
+
+[data-testid="stSidebar"] div[data-testid="stTextInput"] input {
+    color: #f8fafc !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.82rem !important;
+    letter-spacing: 0.05em !important;
+}
+
+[data-testid="stSidebar"] div[data-testid="stTextInput"] input::placeholder {
+    color: #64748b !important;
+    letter-spacing: normal !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
 /* ===== Slider ===== */
 [data-testid="stSidebar"] .stSlider > div > div > div {
     background: linear-gradient(90deg, #8b5cf6, #d946ef) !important;
@@ -995,14 +1022,14 @@ with st.sidebar:
     # Chat Settings & Custom Key
     st.markdown("##### ⚙️ Settings")
 
-    # Beautiful Glass API Key Card
+    # Beautiful Glass API Key Card Container
     st.markdown("""
-    <div class="api-key-card">
+    <div class="api-key-card" style="margin-bottom: 0.4rem;">
         <div class="api-key-header">
             <div class="api-key-title">🔑 Custom API Key</div>
             <a href="https://aistudio.google.com/app/apikey" target="_blank" class="api-key-link">Get Free Key ↗</a>
         </div>
-        <div class="api-key-subtitle">
+        <div class="api-key-subtitle" style="margin-bottom: 0;">
             Bypass shared rate limits & get instant, dedicated speeds.
         </div>
     </div>
@@ -1011,14 +1038,14 @@ with st.sidebar:
     custom_key_input = st.text_input(
         "Enter your Gemini API Key",
         type="password",
-        placeholder="AIzaSy...",
+        placeholder="Paste AIzaSy key here...",
         key="custom_gemini_api_key",
         label_visibility="collapsed",
         help="Paste your own free Gemini API key to bypass shared rate limits and get faster responses."
     )
     if custom_key_input:
         set_custom_api_key(custom_key_input)
-        st.markdown("<div style='margin-top: 0.25rem; font-size: 0.74rem; color: #34d399; font-weight: 600;'>✨ Active: Dedicated Quota</div>", unsafe_allow_html=True)
+        st.markdown("<div style='margin-top: 0.15rem; font-size: 0.74rem; color: #34d399; font-weight: 600;'>✨ Active: Dedicated Quota</div>", unsafe_allow_html=True)
 
     keep_recent = st.slider(
         "Context window",
