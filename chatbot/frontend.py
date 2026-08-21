@@ -1019,8 +1019,6 @@ with st.sidebar:
     if custom_key_input:
         set_custom_api_key(custom_key_input)
         st.markdown("<div style='margin-top: 0.25rem; font-size: 0.74rem; color: #34d399; font-weight: 600;'>✨ Active: Dedicated Quota</div>", unsafe_allow_html=True)
-    else:
-        st.markdown("<div style='margin-top: 0.25rem; font-size: 0.71rem; color: #64748b;'>⚡ Optional · Using default server key</div>", unsafe_allow_html=True)
 
     keep_recent = st.slider(
         "Context window",
