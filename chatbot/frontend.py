@@ -531,21 +531,27 @@ footer { visibility: hidden; }
 .hero-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.55rem;
     background: rgba(139, 92, 246, 0.12);
     border: 1px solid rgba(168, 85, 247, 0.4);
-    padding: 0.4rem 1rem;
+    padding: 0.4rem 1.05rem;
     border-radius: 9999px;
     font-family: 'Inter', sans-serif;
-    font-size: 0.74rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    color: #e879f9;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    letter-spacing: -0.01em;
     margin-bottom: 1.2rem;
     box-shadow: 0 0 25px rgba(168, 85, 247, 0.25), inset 0 0 15px rgba(139, 92, 246, 0.15);
     backdrop-filter: blur(14px);
     animation: nexaBadgePulse 3.5s ease-in-out infinite alternate;
+}
+
+.hero-badge-text {
+    background: linear-gradient(135deg, #ffffff 0%, #c084fc 60%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    letter-spacing: -0.02em;
 }
 
 @keyframes nexaBadgePulse {
@@ -1041,7 +1047,8 @@ if not st.session_state['message_history']:
     <div class="welcome-container">
         <div class="hero-badge">
             <span class="hero-badge-dot"></span>
-            <span>✦ NeuralChat</span>
+            <span style="color: #a855f7; font-size: 0.8rem;">✦</span>
+            <span class="hero-badge-text">NeuralChat</span>
         </div>
         <div class="welcome-title">Engineer and Scale with Clarity</div>
         <div class="welcome-subtitle">
