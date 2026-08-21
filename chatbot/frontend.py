@@ -942,15 +942,17 @@ with st.sidebar:
     st.markdown("##### ⚙️ Settings")
 
     custom_key_input = st.text_input(
-        "Gemini API Key (Optional)",
+        "🔑 Gemini API Key (Optional)",
         type="password",
         placeholder="AIzaSy...",
         key="custom_gemini_api_key",
-        help="Optional: Paste your own free Gemini API key to bypass shared rate limits."
+        help="Paste your own free Gemini API key to bypass shared rate limits and get faster, uninterrupted responses."
     )
     if custom_key_input:
         set_custom_api_key(custom_key_input)
-        st.caption("✨ Using your custom API key quota")
+        st.markdown("<span style='font-size: 0.74rem; color: #34d399; font-weight: 600;'>✨ Active: Custom Dedicated Quota</span>", unsafe_allow_html=True)
+    else:
+        st.markdown("<span style='font-size: 0.72rem; color: #94a3b8;'>⚡ Paste your free Gemini API key to bypass shared limits & get faster response. <a href='https://aistudio.google.com/app/apikey' target='_blank' style='color: #a855f7; text-decoration: underline;'>Get free key →</a></span>", unsafe_allow_html=True)
 
     keep_recent = st.slider(
         "Context window",
