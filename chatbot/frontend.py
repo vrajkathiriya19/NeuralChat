@@ -1132,56 +1132,70 @@ if user_input:
             """, unsafe_allow_html=True)
 
             try:
+                # Stream with token-level updates
                 for event in chatbot.stream(
                     {"messages": [HumanMessage(content=user_input)]},
                     config=CONFIG,
-                    stream_mode="values"
+                    stream_mode="messages"
                 ):
-                    if 'messages' in event:
-                        messages = event['messages']
-                        if messages and hasattr(messages[-1], 'tool_calls'):
-                            tool_calls = messages[-1].tool_calls
-                            if tool_calls:
-                                for tool_call in tool_calls:
-                                    tool_name = tool_call.get('name', 'Unknown Tool')
-                                    if tool_name not in tools_used:
-                                        tools_used.append(tool_name)
-                                    tool_icons = {
-                                        "search_internet": "🌐",
-                                        "calculator": "🧮",
-                                        "get_stock_price": "📈",
-                                        "retrieve_from_documents": "📄"
-                                    }
-                                    icon = tool_icons.get(tool_name, "⚡")
-                                    status_placeholder.markdown(
-                                        f'<span class="tool-pill" style="font-size: 0.75rem;">{icon} Using {tool_name}...</span>',
-                                        unsafe_allow_html=True
-                                    )
+                    msg_chunk, metadata = event
+                    
+                    # Track tool calls in real time
+                    if hasattr(msg_chunk, 'tool_calls') and msg_chunk.tool_calls:
+                        for tool_call in msg_chunk.tool_calls:
+                            tool_name = tool_call.get('name', 'Unknown Tool')
+                            if tool_name not in tools_used:
+                                tools_used.append(tool_name)
+                            tool_icons = {
+                                "search_internet": "🌐",
+                                "calculator": "🧮",
+                                "get_stock_price": "📈",
+                                "retrieve_from_documents": "📄"
+                            }
+                            icon = tool_icons.get(tool_name, "⚡")
+                            status_placeholder.markdown(
+                                f'<span class="tool-pill" style="font-size: 0.75rem;">{icon} Executing {tool_name}...</span>',
+                                unsafe_allow_html=True
+                            )
 
-                        if messages and isinstance(messages[-1], AIMessage):
-                            content = messages[-1].content
-                            if isinstance(content, str) and content.strip():
-                                current_message = content
-                                status_placeholder.empty()
-                                message_placeholder.markdown(current_message)
-                            elif isinstance(content, list) and len(content) > 0:
-                                text = ""
-                                for part in content:
-                                    if isinstance(part, dict):
-                                        text += part.get('text', '')
-                                    else:
-                                        text += str(part)
-                                if text.strip():
-                                    current_message = text
-                                    status_placeholder.empty()
-                                    message_placeholder.markdown(current_message)
+                    # Stream text tokens word-by-word in real time
+                    if isinstance(msg_chunk, AIMessage) and msg_chunk.content:
+                        content = msg_chunk.content
+                        if isinstance(content, str):
+                            current_message += content
+                        elif isinstance(content, list):
+                            for part in content:
+                                if isinstance(part, dict):
+                                    current_message += part.get('text', '')
+                                else:
+                                    current_message += str(part)
+                        
+                        if current_message.strip():
+                            status_placeholder.empty()
+                            message_placeholder.markdown(current_message + " ▌")
+                
+                # Final render without cursor
+                if current_message.strip():
+                    message_placeholder.markdown(current_message)
+
             except Exception as stream_err:
                 print(f"[ERROR] Stream error: {stream_err}")
                 status_placeholder.empty()
                 if "429" in str(stream_err) or "RESOURCE_EXHAUSTED" in str(stream_err):
                     current_message = "⚠️ **Rate limit reached**. Google Gemini Free Tier limits requests per minute. Please wait 20-30 seconds and try again."
                 else:
-                    current_message = f"⚠️ **Something went wrong:** `{str(stream_err)}`"
+                    # Fallback to standard invoke if token streaming has edge case
+                    try:
+                        fallback_res = chatbot.invoke(
+                            {"messages": [HumanMessage(content=user_input)]},
+                            config=CONFIG
+                        )
+                        if 'messages' in fallback_res and fallback_res['messages']:
+                            last_msg = fallback_res['messages'][-1]
+                            current_message = last_msg.content if isinstance(last_msg.content, str) else str(last_msg.content)
+                    except Exception as fallback_err:
+                        current_message = f"⚠️ **Something went wrong:** `{str(stream_err)}`"
+                
                 message_placeholder.markdown(current_message)
 
             # Show persistent tool badges
