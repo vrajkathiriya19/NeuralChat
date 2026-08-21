@@ -275,24 +275,45 @@ button[key="new_chat_btn"]:hover {
 }
 
 /* ===== Custom Sidebar Input Field Styling ===== */
+[data-testid="stSidebar"] div[data-testid="stTextInput"] {
+    position: relative !important;
+}
+
+[data-testid="stSidebar"] div[data-testid="stTextInput"] > div {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
 [data-testid="stSidebar"] div[data-testid="stTextInput"] > div > div {
-    background: rgba(14, 14, 20, 0.85) !important;
+    background: rgba(14, 14, 20, 0.95) !important;
     border: 1px solid rgba(139, 92, 246, 0.35) !important;
     border-radius: var(--radius-md) !important;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5) !important;
-    transition: all 0.25s ease !important;
+    outline: none !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
 }
 
 [data-testid="stSidebar"] div[data-testid="stTextInput"] > div > div:focus-within {
     border-color: #a855f7 !important;
-    box-shadow: 0 0 16px rgba(168, 85, 247, 0.4), inset 0 1px 3px rgba(0,0,0,0.5) !important;
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.35) !important;
+}
+
+/* Hide Streamlit 'Press Enter to apply' tooltip/text */
+[data-testid="stSidebar"] div[data-testid="stTextInput"] [data-testid="InputInstructions"],
+[data-testid="stSidebar"] div[data-testid="stTextInput"] small {
+    display: none !important;
 }
 
 [data-testid="stSidebar"] div[data-testid="stTextInput"] input {
     color: #f8fafc !important;
     font-family: 'JetBrains Mono', monospace !important;
-    font-size: 0.82rem !important;
-    letter-spacing: 0.05em !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.03em !important;
+    padding: 0.45rem 0.65rem !important;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
 }
 
 [data-testid="stSidebar"] div[data-testid="stTextInput"] input::placeholder {
