@@ -1107,14 +1107,9 @@ if user_input:
         st.markdown(user_input)
 
     CONFIG = {'configurable': {'thread_id': st.session_state['thread_id']}}
-    should_rerun = False
+    is_first_message = len(st.session_state['message_history']) == 1
 
-    # Generate title for first message
-    if len(st.session_state['message_history']) == 1:
-        chat_title(st.session_state['thread_id'], user_input)
-        should_rerun = True
-
-    # Stream response
+    # Stream response immediately without blocking on title generation
     with st.chat_message("assistant"):
         status_placeholder = st.empty()
         message_placeholder = st.empty()
@@ -1203,5 +1198,13 @@ if user_input:
         'content': ai_message,
         'tools_used': tools_used if tools_used else None
     })
+
+    # Generate title post-stream for first message
+    if is_first_message:
+        try:
+            chat_title(st.session_state['thread_id'], user_input)
+        except Exception as title_err:
+            print(f"[WARN] Error generating title: {title_err}")
+
     # Always rerun so new memories and titles update in the sidebar immediately
     st.rerun()

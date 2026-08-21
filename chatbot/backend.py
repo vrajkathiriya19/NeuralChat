@@ -668,6 +668,22 @@ LATEST USER MESSAGE:
 
 Extract new facts from the latest message. Return structured output."""
 
+        # Fast-path heuristic: check if message likely contains personal user facts
+        # If it's a generic question, definition, math, or search, skip the LLM call entirely!
+        personal_cues = [
+            'my name', 'i am', "i'm", 'i work', 'i live', 'i like', 'i love', 'i prefer',
+            'i use', 'i study', 'i develop', 'i build', 'my job', 'my role', 'my skill',
+            'my project', 'my company', 'my stack', 'i have', 'call me', 'remember that',
+            'i want', 'my goal', 'i usually', 'my favorite', 'i always'
+        ]
+        msg_lower = latest_message_text.lower().strip()
+        has_cue = any(cue in msg_lower for cue in personal_cues)
+
+        # If message is short and contains no personal cues, short-circuit
+        if not has_cue and len(latest_message_text.split()) < 30:
+            print(f"[DEBUG] Fast-path: No personal cues detected, skipping memory extraction LLM call.")
+            return MemoryDecision(should_write=False, memories=[])
+
         # Create structured output extractor using clean base LLM
         memory_extractor = base_llm.with_structured_output(MemoryDecision)
 
@@ -684,8 +700,6 @@ Extract new facts from the latest message. Return structured output."""
         return decision
     except Exception as e:
         print(f"[ERROR] Error extracting user memories: {e}")
-        import traceback
-        traceback.print_exc()
         return MemoryDecision(should_write=False, memories=[])
 
 
