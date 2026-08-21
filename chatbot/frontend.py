@@ -881,13 +881,13 @@ add_thread(st.session_state['thread_id'])
 # ======================= Sidebar UI =======================
 
 with st.sidebar:
-    # Brand Header
+    # Brand Header (Centered)
     st.markdown("""
-    <div style="margin-bottom: 0.6rem; padding: 0.2rem 0;">
-        <div style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.55rem;
+    <div style="margin-bottom: 0.8rem; padding: 0.2rem 0; text-align: center; display: flex; justify-content: center; align-items: center;">
+        <div style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.6rem;
             background: linear-gradient(135deg, #ffffff 0%, #c084fc 60%, #06b6d4 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            letter-spacing: -0.03em; line-height: 1.1;">NeuralChat</div>
+            letter-spacing: -0.03em; line-height: 1.1; text-align: center;">NeuralChat</div>
     </div>
     """, unsafe_allow_html=True)
 
