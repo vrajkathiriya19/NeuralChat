@@ -1041,7 +1041,7 @@ if not st.session_state['message_history']:
     <div class="welcome-container">
         <div class="hero-badge">
             <span class="hero-badge-dot"></span>
-            <span>✦ NEXUS AI 4.0 · DEEP REASONING</span>
+            <span>✦ NeuralChat</span>
         </div>
         <div class="welcome-title">Engineer and Scale with Clarity</div>
         <div class="welcome-subtitle">
