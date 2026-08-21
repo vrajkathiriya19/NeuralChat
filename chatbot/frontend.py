@@ -220,6 +220,60 @@ button[key="new_chat_btn"]:hover {
     background: rgba(139, 92, 246, 0.06) !important;
 }
 
+/* ===== API Key Glass Card ===== */
+.api-key-card {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(6, 182, 212, 0.04));
+    border: 1px solid rgba(139, 92, 246, 0.22);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 0.95rem;
+    margin-bottom: 0.8rem;
+    transition: var(--transition);
+}
+
+.api-key-card:hover {
+    border-color: rgba(139, 92, 246, 0.45);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+.api-key-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.35rem;
+}
+
+.api-key-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.api-key-link {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #c084fc;
+    text-decoration: none;
+    background: rgba(139, 92, 246, 0.15);
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.api-key-link:hover {
+    background: rgba(139, 92, 246, 0.3);
+    color: #ffffff;
+}
+
+.api-key-subtitle {
+    font-size: 0.73rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
 /* ===== Slider ===== */
 [data-testid="stSidebar"] .stSlider > div > div > div {
     background: linear-gradient(90deg, #8b5cf6, #d946ef) !important;
@@ -941,18 +995,32 @@ with st.sidebar:
     # Chat Settings & Custom Key
     st.markdown("##### ⚙️ Settings")
 
+    # Beautiful Glass API Key Card
+    st.markdown("""
+    <div class="api-key-card">
+        <div class="api-key-header">
+            <div class="api-key-title">🔑 Custom API Key</div>
+            <a href="https://aistudio.google.com/app/apikey" target="_blank" class="api-key-link">Get Free Key ↗</a>
+        </div>
+        <div class="api-key-subtitle">
+            Bypass shared rate limits & get instant, dedicated speeds.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
     custom_key_input = st.text_input(
-        "🔑 Gemini API Key (Optional)",
+        "Enter your Gemini API Key",
         type="password",
         placeholder="AIzaSy...",
         key="custom_gemini_api_key",
-        help="Paste your own free Gemini API key to bypass shared rate limits and get faster, uninterrupted responses."
+        label_visibility="collapsed",
+        help="Paste your own free Gemini API key to bypass shared rate limits and get faster responses."
     )
     if custom_key_input:
         set_custom_api_key(custom_key_input)
-        st.markdown("<span style='font-size: 0.74rem; color: #34d399; font-weight: 600;'>✨ Active: Custom Dedicated Quota</span>", unsafe_allow_html=True)
+        st.markdown("<div style='margin-top: 0.25rem; font-size: 0.74rem; color: #34d399; font-weight: 600;'>✨ Active: Dedicated Quota</div>", unsafe_allow_html=True)
     else:
-        st.markdown("<span style='font-size: 0.72rem; color: #94a3b8;'>⚡ Paste your free Gemini API key to bypass shared limits & get faster response. <a href='https://aistudio.google.com/app/apikey' target='_blank' style='color: #a855f7; text-decoration: underline;'>Get free key →</a></span>", unsafe_allow_html=True)
+        st.markdown("<div style='margin-top: 0.25rem; font-size: 0.71rem; color: #64748b;'>⚡ Optional · Using default server key</div>", unsafe_allow_html=True)
 
     keep_recent = st.slider(
         "Context window",
