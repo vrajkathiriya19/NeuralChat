@@ -89,7 +89,24 @@ def submit_async_task(coro):
 base_llm = ChatGoogleGenerativeAI(model='gemini-3.6-flash', google_api_key=GOOGLE_API_KEY)
 llm = base_llm
 
-
+def set_custom_api_key(custom_key: str):
+    """
+    Dynamically update API keys for LLM and embeddings when a visitor provides their own key.
+    If empty or None, resets back to the default server API key.
+    """
+    global GOOGLE_API_KEY, base_llm, llm, embeddings_model, tools, tool_node
+    active_key = custom_key.strip() if (custom_key and custom_key.strip()) else GOOGLE_API_KEY
+    if not active_key:
+        return
+    try:
+        base_llm = ChatGoogleGenerativeAI(model='gemini-3.6-flash', google_api_key=active_key)
+        llm = base_llm.bind_tools(tools)
+        embeddings_model = GoogleGenerativeAIEmbeddings(
+            model="models/gemini-embedding-001",
+            google_api_key=active_key
+        )
+    except Exception as e:
+        print(f"[WARN] Error updating custom API key: {e}")
 
 # ======================= Chat History Management =======================
 # Global setting for how many recent messages to keep

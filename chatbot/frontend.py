@@ -938,8 +938,21 @@ with st.sidebar:
 
     st.divider()
 
-    # Chat Settings
+    # Chat Settings & Custom Key
     st.markdown("##### ⚙️ Settings")
+
+    custom_key_input = st.text_input(
+        "Gemini API Key (Optional)",
+        type="password",
+        placeholder="AIzaSy...",
+        key="custom_gemini_api_key",
+        help="Optional: Paste your own free Gemini API key to bypass shared rate limits."
+    )
+    
+    from backend import set_custom_api_key, set_keep_recent
+    if custom_key_input:
+        set_custom_api_key(custom_key_input)
+        st.caption("✨ Using your custom API key quota")
 
     keep_recent = st.slider(
         "Context window",
@@ -949,7 +962,6 @@ with st.sidebar:
         step=1,
         help="Recent messages kept in full. Older messages are summarized."
     )
-    from backend import set_keep_recent
     set_keep_recent(keep_recent)
 
     st.divider()
