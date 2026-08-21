@@ -220,13 +220,13 @@ button[key="new_chat_btn"]:hover {
     background: rgba(139, 92, 246, 0.06) !important;
 }
 
-/* ===== API Key Glass Card ===== */
+/* ===== API Key Card & Modal Styling ===== */
 .api-key-card {
     background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(6, 182, 212, 0.04));
     border: 1px solid rgba(139, 92, 246, 0.22);
     border-radius: var(--radius-md);
     padding: 0.85rem 0.95rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
     transition: var(--transition);
 }
 
@@ -235,43 +235,71 @@ button[key="new_chat_btn"]:hover {
     box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
 }
 
-.api-key-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.35rem;
-}
-
 .api-key-title {
     font-size: 0.82rem;
     font-weight: 700;
     color: var(--text-primary);
     display: flex;
     align-items: center;
-    gap: 0.35rem;
-}
-
-.api-key-link {
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: #c084fc;
-    text-decoration: none;
-    background: rgba(139, 92, 246, 0.15);
-    padding: 0.15rem 0.45rem;
-    border-radius: 4px;
-    border: 1px solid rgba(139, 92, 246, 0.3);
-}
-
-.api-key-link:hover {
-    background: rgba(139, 92, 246, 0.3);
-    color: #ffffff;
+    gap: 0.4rem;
+    margin-bottom: 0.25rem;
 }
 
 .api-key-subtitle {
-    font-size: 0.73rem;
+    font-size: 0.72rem;
     color: var(--text-muted);
-    line-height: 1.4;
-    margin-bottom: 0.5rem;
+    line-height: 1.35;
+}
+
+.modal-header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    color: #c084fc;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.modal-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4rem;
+}
+
+.modal-subtitle {
+    font-size: 0.84rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+}
+
+.modal-step-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.modal-step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: #8b5cf6;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 50%;
+    margin-right: 0.5rem;
 }
 
 /* ===== Custom Sidebar Input Field Styling ===== */
@@ -1043,30 +1071,67 @@ with st.sidebar:
     # Chat Settings & Custom Key
     st.markdown("##### ⚙️ Settings")
 
-    # Beautiful Glass API Key Card Container
-    st.markdown("""
-    <div class="api-key-card" style="margin-bottom: 0.4rem;">
-        <div class="api-key-header">
-            <div class="api-key-title">🔑 Custom API Key</div>
-            <a href="https://aistudio.google.com/app/apikey" target="_blank" class="api-key-link">Get Free Key ↗</a>
+    # API Key Dialog Modal (Popup)
+    @st.dialog("⚡ Connect Your Dedicated Gemini API Key")
+    def api_key_dialog():
+        st.markdown("""
+        <div class="modal-header-badge">✦ DEDICATED SPEED & UNLIMITED QUOTA</div>
+        <div class="modal-subtitle">
+            Generate your own free key in 10 seconds from Google AI Studio to bypass all shared rate limits and experience instant response times.
         </div>
-        <div class="api-key-subtitle" style="margin-bottom: 0;">
-            Bypass shared rate limits & get instant, dedicated speeds.
+        """, unsafe_allow_html=True)
+
+        col_link, col_info = st.columns([1.8, 1])
+        with col_link:
+            st.link_button("🌐 Step 1: Open Google AI Studio ↗", "https://aistudio.google.com/app/apikey", use_container_width=True)
+
+        st.markdown("""
+        <div class="modal-step-card">
+            <span class="modal-step-num">2</span> <b>Paste your key below:</b>
+        </div>
+        """, unsafe_allow_html=True)
+
+        dialog_key_input = st.text_input(
+            "Gemini API Key",
+            type="default",
+            placeholder="AIzaSy...",
+            value=st.session_state.get("custom_gemini_api_key", ""),
+            label_visibility="collapsed",
+            help="Your key is stored only in your active browser session and never saved to any database."
+        )
+
+        col_save, col_clear = st.columns([1, 1])
+        with col_save:
+            if st.button("✨ Save & Activate Key", use_container_width=True, type="primary"):
+                if dialog_key_input.strip():
+                    st.session_state["custom_gemini_api_key"] = dialog_key_input.strip()
+                    set_custom_api_key(dialog_key_input.strip())
+                    st.success("✅ Dedicated API Key Activated!")
+                    st.rerun()
+                else:
+                    st.warning("Please paste a valid key first.")
+        with col_clear:
+            if st.button("Reset to Default Key", use_container_width=True):
+                st.session_state["custom_gemini_api_key"] = ""
+                set_custom_api_key("")
+                st.info("Reset to default server key.")
+                st.rerun()
+
+    # Sidebar Box & Generate Button
+    st.markdown("""
+    <div class="api-key-card">
+        <div class="api-key-title">⚡ Dedicated API Key</div>
+        <div class="api-key-subtitle">
+            Generate your own free key to bypass shared rate limits.
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-    custom_key_input = st.text_input(
-        "Enter your Gemini API Key",
-        type="default",
-        placeholder="Paste AIzaSy key here...",
-        key="custom_gemini_api_key",
-        label_visibility="collapsed",
-        help="Paste your own free Gemini API key to bypass shared rate limits and get faster responses."
-    )
-    if custom_key_input:
-        set_custom_api_key(custom_key_input)
-        st.markdown("<div style='margin-top: 0.15rem; font-size: 0.74rem; color: #34d399; font-weight: 600;'>✨ Active: Dedicated Quota</div>", unsafe_allow_html=True)
+    if st.button("🔑 Generate / Connect Key", key="open_api_key_modal", use_container_width=True):
+        api_key_dialog()
+
+    if st.session_state.get("custom_gemini_api_key"):
+        st.markdown("<div style='margin-top: 0.35rem; margin-bottom: 0.5rem; font-size: 0.74rem; color: #34d399; font-weight: 600;'>✨ Active: Dedicated Key Connected</div>", unsafe_allow_html=True)
 
     keep_recent = st.slider(
         "Context window",
