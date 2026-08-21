@@ -251,55 +251,90 @@ button[key="new_chat_btn"]:hover {
     line-height: 1.35;
 }
 
-.modal-header-badge {
-    display: inline-flex;
+/* ===== Modal Dialog Custom Modern Styling ===== */
+div[data-testid="stDialog"] div[role="dialog"] {
+    background: #0c0c14 !important;
+    border: 1px solid rgba(139, 92, 246, 0.3) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(139, 92, 246, 0.15) !important;
+    padding: 1.5rem !important;
+    max-width: 520px !important;
+}
+
+div[data-testid="stDialog"] div[role="dialog"] h2 {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 1.25rem !important;
+    letter-spacing: -0.02em !important;
+    color: #ffffff !important;
+    padding-bottom: 0.25rem !important;
+}
+
+.modal-body-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.modal-step-box {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.modal-step-box:hover {
+    border-color: rgba(139, 92, 246, 0.25);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.modal-step-header {
+    display: flex;
     align-items: center;
-    gap: 0.4rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    background: rgba(139, 92, 246, 0.15);
-    border: 1px solid rgba(139, 92, 246, 0.35);
-    color: #c084fc;
-    font-size: 0.75rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #f8fafc;
 }
 
-.modal-title {
-    font-size: 1.35rem;
-    font-weight: 800;
+.modal-step-badge {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8b5cf6, #d946ef);
     color: #ffffff;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.4rem;
-}
-
-.modal-subtitle {
-    font-size: 0.84rem;
-    color: #94a3b8;
-    line-height: 1.5;
-    margin-bottom: 1.25rem;
-}
-
-.modal-step-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 10px;
-    padding: 0.8rem 1rem;
-    margin-bottom: 1rem;
-}
-
-.modal-step-num {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
-    background: #8b5cf6;
-    color: #ffffff;
-    font-size: 0.7rem;
-    font-weight: 700;
-    border-radius: 50%;
-    margin-right: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.modal-step-desc {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    line-height: 1.4;
+    margin: 0;
+}
+
+div[data-testid="stDialog"] div[data-testid="stTextInput"] input {
+    background: #07070a !important;
+    border: 1px solid rgba(139, 92, 246, 0.35) !important;
+    border-radius: 10px !important;
+    color: #ffffff !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.84rem !important;
+    padding: 0.65rem 0.85rem !important;
+}
+
+div[data-testid="stDialog"] div[data-testid="stTextInput"] input:focus {
+    border-color: #a855f7 !important;
+    box-shadow: 0 0 16px rgba(168, 85, 247, 0.3) !important;
 }
 
 /* ===== Custom Sidebar Input Field Styling ===== */
@@ -1071,47 +1106,64 @@ with st.sidebar:
     # Chat Settings & Custom Key
     st.markdown("##### ⚙️ Settings")
 
-    # API Key Dialog Modal (Popup)
-    @st.dialog("⚡ Connect Your Dedicated Gemini API Key")
+    # API Key Dialog Modal (Popup) - Redesigned Modern UI
+    @st.dialog("⚡ Connect Dedicated API Key")
     def api_key_dialog():
         st.markdown("""
-        <div class="modal-header-badge">✦ DEDICATED SPEED & UNLIMITED QUOTA</div>
-        <div class="modal-subtitle">
-            Generate your own free key in 10 seconds from Google AI Studio to bypass all shared rate limits and experience instant response times.
+        <div class="modal-body-container">
+            <div class="modal-step-box">
+                <div class="modal-step-header">
+                    <span class="modal-step-badge">1</span>
+                    <span>Get Free Gemini Key</span>
+                </div>
+                <p class="modal-step-desc">
+                    Create a free key in Google AI Studio with zero billing required:
+                </p>
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
-        col_link, col_info = st.columns([1.8, 1])
-        with col_link:
-            st.link_button("🌐 Step 1: Open Google AI Studio ↗", "https://aistudio.google.com/app/apikey", use_container_width=True)
+        st.link_button("🌐 Open Google AI Studio ↗", "https://aistudio.google.com/app/apikey", use_container_width=True)
 
         st.markdown("""
-        <div class="modal-step-card">
-            <span class="modal-step-num">2</span> <b>Paste your key below:</b>
+        <div class="modal-body-container" style="margin-top: 0.75rem;">
+            <div class="modal-step-box">
+                <div class="modal-step-header">
+                    <span class="modal-step-badge">2</span>
+                    <span>Paste Key Below</span>
+                </div>
+                <p class="modal-step-desc">
+                    Your key is stored only in this browser session memory:
+                </p>
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
         dialog_key_input = st.text_input(
-            "Gemini API Key",
+            "Paste API Key",
             type="default",
             placeholder="AIzaSy...",
             value=st.session_state.get("custom_gemini_api_key", ""),
             label_visibility="collapsed",
-            help="Your key is stored only in your active browser session and never saved to any database."
+            help="Your key stays inside this active browser tab and is never saved to disk or logs."
         )
 
-        col_save, col_clear = st.columns([1, 1])
+        if st.session_state.get("custom_gemini_api_key"):
+            masked_key = st.session_state["custom_gemini_api_key"][:6] + "••••••••" + st.session_state["custom_gemini_api_key"][-4:]
+            st.markdown(f"<div style='font-size: 0.76rem; color: #34d399; font-weight: 600; margin-bottom: 0.5rem;'>✨ Connected: <code>{masked_key}</code></div>", unsafe_allow_html=True)
+
+        col_save, col_clear = st.columns([1.5, 1])
         with col_save:
-            if st.button("✨ Save & Activate Key", use_container_width=True, type="primary"):
+            if st.button("✨ Save & Activate", use_container_width=True, type="primary"):
                 if dialog_key_input.strip():
                     st.session_state["custom_gemini_api_key"] = dialog_key_input.strip()
                     set_custom_api_key(dialog_key_input.strip())
-                    st.success("✅ Dedicated API Key Activated!")
+                    st.success("✅ Dedicated Key Activated!")
                     st.rerun()
                 else:
-                    st.warning("Please paste a valid key first.")
+                    st.warning("Please enter a key first.")
         with col_clear:
-            if st.button("Reset to Default Key", use_container_width=True):
+            if st.button("Reset Default", use_container_width=True):
                 st.session_state["custom_gemini_api_key"] = ""
                 set_custom_api_key("")
                 st.info("Reset to default server key.")
